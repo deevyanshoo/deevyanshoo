@@ -14,9 +14,9 @@ Run the generator twice when changing the renderer. The second run must report `
 
 ## Live telemetry
 
-Scheduled generation first reads the optional `PROFILE_TOKEN` repository secret and otherwise falls back to `github.token`. For aggregate private contribution visibility, create a fine-grained personal access token owned by `deevyanshoo`, grant read-only repository metadata to only the repositories whose activity may be counted, and save it as `PROFILE_TOKEN` in this repository.
+Scheduled generation first reads the optional `PROFILE_TOKEN` repository secret and otherwise falls back to `github.token`. To include private/internal contributions in anonymous totals, enable private contribution counts on the GitHub profile, create a classic personal access token with only the `read:user` scope, and save it as `PROFILE_TOKEN` in this repository. It needs no repository access and cannot read repository names, metadata, or contents.
 
-The telemetry query requests counts only. Do not add repository identity fields—even temporarily—to the query, fixtures, logs, models, or renderer.
+The telemetry query requests counts only. Do not add repository identity fields—even temporarily—to the query, fixtures, logs, models, or renderer. Tests use a clearly synthetic sensitive-data sentinel to prove unexpected values are discarded before rendering.
 
 ## Design edits
 

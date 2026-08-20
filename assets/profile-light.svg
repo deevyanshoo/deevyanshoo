@@ -115,12 +115,12 @@ text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation M
 <text x="496" y="630" class="metric-value" text-anchor="end">24</text>
 <text x="552" y="630" class="metric-label">PUBLIC REPOS</text>
 <text x="748" y="630" class="metric-value" text-anchor="end">3</text>
-<text x="804" y="630" class="metric-label">REPOS TOUCHED</text>
+<text x="804" y="630" class="metric-label">RECENT REPOS</text>
 <text x="1000" y="630" class="metric-value" text-anchor="end">6</text>
 <text x="48" y="676" class="metric-label">STARS EARNED</text>
 <text x="244" y="676" class="metric-value" text-anchor="end">1</text>
-<text x="300" y="676" class="metric-label">PRIVATE ACTIVITY</text>
-<text x="496" y="676" class="metric-value" text-anchor="end">AGGREGATED</text>
+<text x="300" y="676" class="metric-label">PRIVACY MODE</text>
+<text x="496" y="676" class="metric-value" text-anchor="end">AGGREGATE ONLY</text>
 </g>
 <line x1="48" y1="716" x2="1152" y2="716" stroke="#d0d7de"/>
 <g fill="#656d76">

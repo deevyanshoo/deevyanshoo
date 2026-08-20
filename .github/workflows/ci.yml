@@ -31,5 +31,7 @@ jobs:
 
       - name: Verify deterministic assets
         run: |
-          python scripts/generate.py --offline
-          git diff --exit-code -- assets/profile-dark.svg assets/profile-light.svg
+          python scripts/generate.py --offline --output-dir "$RUNNER_TEMP/profile-first"
+          python scripts/generate.py --offline --output-dir "$RUNNER_TEMP/profile-second"
+          cmp "$RUNNER_TEMP/profile-first/profile-dark.svg" "$RUNNER_TEMP/profile-second/profile-dark.svg"
+          cmp "$RUNNER_TEMP/profile-first/profile-light.svg" "$RUNNER_TEMP/profile-second/profile-light.svg"

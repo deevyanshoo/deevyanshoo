@@ -21,8 +21,7 @@ class DeterministicRenderTests(unittest.TestCase):
                 public_repositories=4,
                 repositories_contributed_to=18,
                 stars_earned=21,
-            ),
-            private_activity_aggregated=True,
+            )
         )
 
     def test_same_input_produces_byte_identical_svg(self) -> None:
@@ -40,14 +39,16 @@ class DeterministicRenderTests(unittest.TestCase):
         self.assertIn('data-theme="dark"', dark)
         self.assertNotEqual(light, dark)
 
-    def test_output_contains_story_and_no_private_identifiers(self) -> None:
+    def test_output_contains_story_and_capability_neutral_privacy_label(self) -> None:
         svg = render_profile(self.data, "dark")
         for phrase in (
             "DEEVYANSHOO // OPERATOR", "making large models fit small boxes",
             "Nnomi", "Chauffit", "runtime", "v26", "garage_target", "911",
+            "RECENT REPOS", "PRIVACY MODE", "AGGREGATE ONLY",
         ):
             self.assertIn(phrase, svg)
-        self.assertNotIn("customer-zero-stealth-repo", svg)
+        self.assertNotIn("PRIVATE ACTIVITY", svg)
+        self.assertNotIn("SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE", svg)
 
     def test_renderer_escapes_dynamic_text(self) -> None:
         svg = render_profile(self.data, "dark", status_label="A&B <ready>")

@@ -11,7 +11,6 @@ class ReadmeContractTests(unittest.TestCase):
     def test_readme_has_theme_art_and_native_accessible_story(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         lower = readme.lower()
-
         self.assertIn("<picture>", readme)
         self.assertIn("assets/profile-dark.svg", readme)
         self.assertIn("assets/profile-light.svg", readme)
@@ -21,7 +20,6 @@ class ReadmeContractTests(unittest.TestCase):
             "University of Pennsylvania", "Gurugram ↔ wherever",
         ):
             self.assertIn(phrase, readme)
-
         for forbidden in ("followers", "streak", "date of birth", "9 feb", "language %"):
             self.assertNotIn(forbidden, lower)
 
@@ -30,22 +28,28 @@ class ReadmeContractTests(unittest.TestCase):
         profile = (ROOT / ".github" / "workflows" / "profile.yml").read_text(
             encoding="utf-8"
         )
-
         for workflow in (ci, profile):
             self.assertIn("actions/checkout@v7", workflow)
             self.assertIn("actions/setup-python@v7", workflow)
-
         self.assertIn("contents: read", ci)
         self.assertNotIn("PROFILE_TOKEN", ci)
+        self.assertIn('--output-dir "$RUNNER_TEMP/profile-first"', ci)
+        self.assertIn('--output-dir "$RUNNER_TEMP/profile-second"', ci)
+        self.assertNotIn("git diff --exit-code -- assets", ci)
         self.assertNotIn("pull_request", profile)
         self.assertIn("contents: write", profile)
         self.assertIn("schedule:", profile)
         self.assertIn("workflow_dispatch:", profile)
         self.assertIn("secrets.PROFILE_TOKEN", profile)
         self.assertIn(
-            "git add -- assets/profile-dark.svg assets/profile-light.svg",
-            profile,
+            "git add -- assets/profile-dark.svg assets/profile-light.svg", profile
         )
+
+    def test_token_documentation_requires_only_read_user_scope(self) -> None:
+        contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
+        self.assertIn("`read:user`", contributing)
+        self.assertIn("no repository access", contributing.lower())
+        self.assertNotIn("fine-grained personal access token", contributing.lower())
 
 
 if __name__ == "__main__":

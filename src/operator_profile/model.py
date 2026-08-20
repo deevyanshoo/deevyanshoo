@@ -26,8 +26,3 @@ class GitHubStats:
 @dataclass(frozen=True, slots=True)
 class ProfileData:
     stats: GitHubStats
-    private_activity_aggregated: bool
-
-    def __post_init__(self) -> None:
-        if not isinstance(self.private_activity_aggregated, bool):
-            raise ValueError("private_activity_aggregated must be a boolean")

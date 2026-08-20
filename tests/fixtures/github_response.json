@@ -10,17 +10,18 @@
         "totalPullRequestReviewContributions": 113
       },
       "pullRequests": {"totalCount": 97},
-      "repositories": {
-        "totalCount": 4,
+      "publicRepositories": {"totalCount": 4},
+      "starredRepositories": {
         "nodes": [
           {"stargazerCount": 11},
           {"stargazerCount": 7},
           {"stargazerCount": 3},
           {"stargazerCount": 0}
-        ]
+        ],
+        "pageInfo": {"hasNextPage": false, "endCursor": null}
       },
-      "repositoriesContributedTo": {"totalCount": 18},
-      "unexpectedPrivateRepositoryNames": ["customer-zero-stealth-repo"]
+      "recentRepositories": {"totalCount": 18},
+      "unexpectedSensitiveValues": ["SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE"]
     }
   }
 }

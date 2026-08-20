@@ -18,14 +18,11 @@ from operator_profile.render import render_profile  # noqa: E402
 from operator_profile.telemetry import fetch_stats, parse_stats  # noqa: E402
 
 
-def _load_fixture(path: Path) -> tuple[Mapping[str, Any], bool]:
+def _load_fixture(path: Path) -> Mapping[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, Mapping):
         raise ValueError("offline fixture must contain a JSON object")
-    private_aggregated = payload.get("private_activity_aggregated", False)
-    if not isinstance(private_aggregated, bool):
-        raise ValueError("private_activity_aggregated must be a boolean")
-    return payload, private_aggregated
+    return payload
 
 
 def _write_if_changed(destination: Path, content: str) -> bool:
@@ -57,23 +54,19 @@ def _arguments() -> argparse.Namespace:
 def main() -> int:
     arguments = _arguments()
     if arguments.offline:
-        payload, private_aggregated = _load_fixture(arguments.fixture)
-        stats = parse_stats(payload)
+        stats = parse_stats(_load_fixture(arguments.fixture))
     else:
-        profile_token = os.environ.get("PROFILE_TOKEN", "").strip()
-        github_token = os.environ.get("GITHUB_TOKEN", "").strip()
-        token = profile_token or github_token
+        token = (
+            os.environ.get("PROFILE_TOKEN", "").strip()
+            or os.environ.get("GITHUB_TOKEN", "").strip()
+        )
         if not token:
             raise SystemExit(
                 "Live generation needs PROFILE_TOKEN or GITHUB_TOKEN; use --offline locally."
             )
         stats = fetch_stats(token=token, login=arguments.login)
-        private_aggregated = bool(profile_token)
 
-    data = ProfileData(
-        stats=stats,
-        private_activity_aggregated=private_aggregated,
-    )
+    data = ProfileData(stats=stats)
     changed: list[str] = []
     for theme in ("light", "dark"):
         destination = arguments.output_dir / f"profile-{theme}.svg"

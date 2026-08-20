@@ -1,5 +1,4 @@
 {
-  "private_activity_aggregated": false,
   "data": {
     "user": {
       "contributionsCollection": {
@@ -11,14 +10,15 @@
         "totalPullRequestReviewContributions": 0
       },
       "pullRequests": {"totalCount": 0},
-      "repositories": {
-        "totalCount": 2,
+      "publicRepositories": {"totalCount": 2},
+      "starredRepositories": {
         "nodes": [
           {"stargazerCount": 0},
           {"stargazerCount": 0}
-        ]
+        ],
+        "pageInfo": {"hasNextPage": false, "endCursor": null}
       },
-      "repositoriesContributedTo": {"totalCount": 2}
+      "recentRepositories": {"totalCount": 2}
     }
   }
 }
