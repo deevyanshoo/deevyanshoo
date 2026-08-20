@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" data-theme="light">
+<title>Divyanshu Goyal — AI architect, founder, and builder</title>
+<desc>Operator console featuring an ASCII portrait, current AI and founder work, selected systems, and anonymous aggregate GitHub telemetry.</desc>
+<style>
+text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:2.2px}
+.title{font-size:32px;font-weight:800;letter-spacing:.4px}
+.role{font-size:15px;font-weight:700;letter-spacing:1.2px}
+.tagline{font-size:18px;font-weight:700}
+.body{font-size:14px}
+.small{font-size:12px}
+.section{font-size:12px;font-weight:800;letter-spacing:2px}
+.metric-label{font-size:11px;letter-spacing:1px}
+.metric-value{font-size:14px;font-weight:800}
+.portrait{font-size:13px;white-space:pre}
+</style>
+<rect width="1200" height="800" rx="18" fill="#ffffff"/>
+<rect x="18" y="18" width="1164" height="764" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
+<g fill="#656d76">
+<text x="48" y="56" class="eyebrow">DEEVYANSHOO // OPERATOR</text>
+</g>
+<circle cx="1078" cy="51" r="5" fill="#1a7f37"/>
+<g fill="#1a7f37">
+<text x="1092" y="56" class="eyebrow">ONLINE</text>
+</g>
+<line x1="48" y1="78" x2="1152" y2="78" stroke="#d0d7de"/>
+<g fill="#0969da">
+<text x="48" y="112" class="section">PORTRAIT / 01</text>
+</g>
+<g fill="#3b434b">
+<text x="48" y="144" class="portrait">              .-+*######*+-.</text>
+<text x="48" y="160" class="portrait">           .+%@@@@@@@@@@@@@@%+.</text>
+<text x="48" y="176" class="portrait">         .*@@@@%#*++++*#%@@@@*.</text>
+<text x="48" y="192" class="portrait">        .%@@@*=----------=*@@@%.</text>
+<text x="48" y="208" class="portrait">        #@@@+-.          .-+@@@#</text>
+<text x="48" y="224" class="portrait">       +@@@=.    .:--:.    .=@@@+</text>
+<text x="48" y="240" class="portrait">       %@@*.  .+########+.  .*@@%</text>
+<text x="48" y="256" class="portrait">      +@@@=  ╔══════╗╔══════╗  =@@@+</text>
+<text x="48" y="272" class="portrait">      #@@@-  ║  ▄▄  ║║  ▄▄  ║  -@@@#</text>
+<text x="48" y="288" class="portrait">      #@@@-  ╚═══╦══╝╚══╦═══╝  -@@@#</text>
+<text x="48" y="304" class="portrait">      +@@@=      ║  ▄▄  ║      =@@@+</text>
+<text x="48" y="320" class="portrait">       %@@*.     ╚══════╝     .*@@%</text>
+<text x="48" y="336" class="portrait">       +@@@#=.   .+****+.   .=#@@@+</text>
+<text x="48" y="352" class="portrait">        #@@@@#+=-:....:-=+#@@@@#</text>
+<text x="48" y="368" class="portrait">         *@@@@@@%######%@@@@@@*</text>
+<text x="48" y="384" class="portrait">           +%@@@@@@@@@@@@@@%+</text>
+<text x="48" y="400" class="portrait">              *@@@@@@@@@@*</text>
+<text x="48" y="416" class="portrait">            .+%%@@@@@@@@%%+.</text>
+<text x="48" y="432" class="portrait">         .+%@@@@@@@@@@@@@@@@%+.</text>
+<text x="48" y="448" class="portrait">      .+%@@@@@@@@@@@@@@@@@@@@@@%+.</text>
+<text x="48" y="464" class="portrait">    .*@@@@@@@@@@@@@@@@@@@@@@@@@@@@*.</text>
+<text x="48" y="480" class="portrait">   +@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+</text>
+<text x="48" y="496" class="portrait">  #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#</text>
+</g>
+<line x1="488" y1="102" x2="488" y2="526" stroke="#d0d7de"/>
+<g fill="#0969da">
+<text x="526" y="112" class="section">IDENTITY / MISSION</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="154" class="title">DIVYANSHU GOYAL</text>
+</g>
+<g fill="#0969da">
+<text x="526" y="184" class="role">AI ARCHITECT // FOUNDER // BUILDER</text>
+</g>
+<g fill="#3b434b">
+<text x="526" y="218" class="body">I build ambitious AI systems from first principles to production.</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="252" class="tagline">making large models fit small boxes</text>
+</g>
+<g fill="#656d76">
+<text x="526" y="278" class="small">AI Architect @ ZS  ·  UPenn MSE Data Science</text>
+<text x="526" y="300" class="small">Gurugram ↔ wherever</text>
+</g>
+<line x1="526" y1="326" x2="1152" y2="326" stroke="#d0d7de"/>
+<g fill="#0969da">
+<text x="526" y="354" class="section">CURRENT</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="386" class="body">Nnomi — a financial friend for the full journey to wealth</text>
+</g>
+<g fill="#3b434b">
+<text x="526" y="412" class="body">Chauffit — an AI-powered, safety-first driver marketplace</text>
+</g>
+<g fill="#0969da">
+<text x="526" y="456" class="section">SELECTED BUILDS</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="486" class="body">JARVIS</text>
+</g>
+<g fill="#656d76">
+<text x="650" y="486" class="small">hybrid + on-device inference on a phone</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="512" class="body">DAG LEDGER</text>
+</g>
+<g fill="#656d76">
+<text x="650" y="512" class="small">decentralized approvals without an ever-growing chain</text>
+</g>
+<g fill="#1f2328">
+<text x="526" y="538" class="body">AVIATION</text>
+</g>
+<g fill="#656d76">
+<text x="650" y="538" class="small">90%+ demand forecasting, 65 days ahead, ~800 TB/day</text>
+</g>
+<line x1="48" y1="566" x2="1152" y2="566" stroke="#d0d7de"/>
+<g fill="#0969da">
+<text x="48" y="596" class="section">GITHUB / LIVE AGGREGATES</text>
+</g>
+<g fill="#656d76">
+<text x="48" y="630" class="metric-label">CONTRIBUTIONS YTD</text>
+<text x="244" y="630" class="metric-value" text-anchor="end">253</text>
+<text x="300" y="630" class="metric-label">MERGED PRS</text>
+<text x="496" y="630" class="metric-value" text-anchor="end">24</text>
+<text x="552" y="630" class="metric-label">PUBLIC REPOS</text>
+<text x="748" y="630" class="metric-value" text-anchor="end">3</text>
+<text x="804" y="630" class="metric-label">REPOS TOUCHED</text>
+<text x="1000" y="630" class="metric-value" text-anchor="end">6</text>
+<text x="48" y="676" class="metric-label">STARS EARNED</text>
+<text x="244" y="676" class="metric-value" text-anchor="end">1</text>
+<text x="300" y="676" class="metric-label">PRIVATE ACTIVITY</text>
+<text x="496" y="676" class="metric-value" text-anchor="end">AGGREGATED</text>
+</g>
+<line x1="48" y1="716" x2="1152" y2="716" stroke="#d0d7de"/>
+<g fill="#656d76">
+<text x="48" y="750" class="small">coffee ........ required</text>
+<text x="332" y="750" class="small">inference ..... local &gt; cloud</text>
+<text x="676" y="750" class="small">runtime ........ v26</text>
+<text x="936" y="750" class="small">garage_target .. 911</text>
+</g>
+</svg>

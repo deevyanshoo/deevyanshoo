@@ -1,0 +1,24 @@
+{
+  "private_activity_aggregated": false,
+  "data": {
+    "user": {
+      "contributionsCollection": {
+        "contributionCalendar": {"totalContributions": 0},
+        "restrictedContributionsCount": 0,
+        "totalCommitContributions": 0,
+        "totalPullRequestContributions": 0,
+        "totalIssueContributions": 0,
+        "totalPullRequestReviewContributions": 0
+      },
+      "pullRequests": {"totalCount": 0},
+      "repositories": {
+        "totalCount": 2,
+        "nodes": [
+          {"stargazerCount": 0},
+          {"stargazerCount": 0}
+        ]
+      },
+      "repositoriesContributedTo": {"totalCount": 2}
+    }
+  }
+}

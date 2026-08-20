@@ -1,0 +1,52 @@
+from __future__ import annotations
+
+import unittest
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class ReadmeContractTests(unittest.TestCase):
+    def test_readme_has_theme_art_and_native_accessible_story(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        lower = readme.lower()
+
+        self.assertIn("<picture>", readme)
+        self.assertIn("assets/profile-dark.svg", readme)
+        self.assertIn("assets/profile-light.svg", readme)
+        self.assertIn('alt="Divyanshu Goyal', readme)
+        for phrase in (
+            "Nnomi", "Chauffit", "JARVIS", "DAG", "aviation",
+            "University of Pennsylvania", "Gurugram ↔ wherever",
+        ):
+            self.assertIn(phrase, readme)
+
+        for forbidden in ("followers", "streak", "date of birth", "9 feb", "language %"):
+            self.assertNotIn(forbidden, lower)
+
+    def test_ci_and_profile_workflows_separate_permissions_and_secrets(self) -> None:
+        ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        profile = (ROOT / ".github" / "workflows" / "profile.yml").read_text(
+            encoding="utf-8"
+        )
+
+        for workflow in (ci, profile):
+            self.assertIn("actions/checkout@v7", workflow)
+            self.assertIn("actions/setup-python@v7", workflow)
+
+        self.assertIn("contents: read", ci)
+        self.assertNotIn("PROFILE_TOKEN", ci)
+        self.assertNotIn("pull_request", profile)
+        self.assertIn("contents: write", profile)
+        self.assertIn("schedule:", profile)
+        self.assertIn("workflow_dispatch:", profile)
+        self.assertIn("secrets.PROFILE_TOKEN", profile)
+        self.assertIn(
+            "git add -- assets/profile-dark.svg assets/profile-light.svg",
+            profile,
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

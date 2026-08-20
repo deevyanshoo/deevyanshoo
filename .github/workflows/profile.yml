@@ -1,0 +1,51 @@
+name: Refresh profile
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Test privacy and rendering contracts
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -v
+
+      - name: Generate live profile assets
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/generate.py
+
+      - name: Commit changed assets
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- assets/profile-dark.svg assets/profile-light.svg
+          if git diff --cached --quiet; then
+            echo "Profile assets are already current."
+            exit 0
+          fi
+          git commit -m "chore: refresh profile telemetry"
+          git push

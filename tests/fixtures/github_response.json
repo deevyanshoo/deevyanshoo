@@ -1,0 +1,26 @@
+{
+  "data": {
+    "user": {
+      "contributionsCollection": {
+        "contributionCalendar": {"totalContributions": 742},
+        "restrictedContributionsCount": 311,
+        "totalCommitContributions": 526,
+        "totalPullRequestContributions": 84,
+        "totalIssueContributions": 19,
+        "totalPullRequestReviewContributions": 113
+      },
+      "pullRequests": {"totalCount": 97},
+      "repositories": {
+        "totalCount": 4,
+        "nodes": [
+          {"stargazerCount": 11},
+          {"stargazerCount": 7},
+          {"stargazerCount": 3},
+          {"stargazerCount": 0}
+        ]
+      },
+      "repositoriesContributedTo": {"totalCount": 18},
+      "unexpectedPrivateRepositoryNames": ["customer-zero-stealth-repo"]
+    }
+  }
+}

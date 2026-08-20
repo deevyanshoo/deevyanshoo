@@ -1,0 +1,10 @@
+[project]
+name = "deevyanshoo-profile"
+version = "1.0.0"
+description = "Deterministic, privacy-safe GitHub profile telemetry and SVG renderer"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "Divyanshu Goyal"}]
+
+[tool.unittest]
+start-directory = "tests"
