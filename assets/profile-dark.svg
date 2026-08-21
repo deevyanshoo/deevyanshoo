@@ -110,13 +110,13 @@ text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation M
 </g>
 <g fill="#8b949e">
 <text x="48" y="630" class="metric-label">CONTRIBUTIONS YTD</text>
-<text x="244" y="630" class="metric-value" text-anchor="end">253</text>
+<text x="244" y="630" class="metric-value" text-anchor="end">258</text>
 <text x="300" y="630" class="metric-label">MERGED PRS</text>
-<text x="496" y="630" class="metric-value" text-anchor="end">24</text>
+<text x="496" y="630" class="metric-value" text-anchor="end">0</text>
 <text x="552" y="630" class="metric-label">PUBLIC REPOS</text>
 <text x="748" y="630" class="metric-value" text-anchor="end">3</text>
 <text x="804" y="630" class="metric-label">RECENT REPOS</text>
-<text x="1000" y="630" class="metric-value" text-anchor="end">6</text>
+<text x="1000" y="630" class="metric-value" text-anchor="end">1</text>
 <text x="48" y="676" class="metric-label">STARS EARNED</text>
 <text x="244" y="676" class="metric-value" text-anchor="end">1</text>
 <text x="300" y="676" class="metric-label">PRIVACY MODE</text>
