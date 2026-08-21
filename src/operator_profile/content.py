@@ -18,8 +18,8 @@ LOCATION = "Gurugram ↔ wherever"
 CURRENT_MISSION = "NNOMI"
 CURRENT_MISSION_URL = "nnomi.com"
 CURRENT_MISSION_LINE_1 = "A financial coach for the entire journey"
-CURRENT_MISSION_LINE_2 = "from earning money to building wealth."
-SECONDARY_MISSION = "CHAUFFIT // safety-first on-demand driver marketplace"
+CURRENT_MISSION_LINE_2 = "from earning money → building wealth."
+SECONDARY_MISSION = "CHAUFFIT // AI-powered, safety-first on-demand driver marketplace"
 
 SELECTED_BUILDS = (
     Build("JARVIS", "hybrid inference: local SLM + cloud LLM"),
