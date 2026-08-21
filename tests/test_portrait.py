@@ -5,7 +5,7 @@ import warnings
 
 from PIL import Image
 
-from scripts.build_portrait import Crop, quantize_portrait
+from scripts.build_portrait import Crop, DEFAULT_CROP, quantize_portrait
 from operator_profile.portrait import render_portrait
 from operator_profile.portrait_data import PORTRAIT_SIZE, TONE_RUNS
 from operator_profile.svg import palette
@@ -48,6 +48,10 @@ class PortraitPipelineTests(unittest.TestCase):
                 self.assertGreaterEqual(y, 0)
                 self.assertLessEqual(x + length, width)
                 self.assertLess(y, height)
+
+    def test_default_crop_is_head_and_shoulders(self) -> None:
+        self.assertLessEqual(DEFAULT_CROP.bottom, 820)
+        self.assertLess(DEFAULT_CROP.right - DEFAULT_CROP.left, 650)
 
     def test_portrait_renderer_emits_one_path_per_tone(self) -> None:
         rendered = "\n".join(render_portrait(palette("dark"), 24, 40, scale=2))

@@ -22,7 +22,7 @@ class Crop:
         return self.left, self.top, self.right, self.bottom
 
 
-DEFAULT_CROP = Crop(430, 20, 1180, 985)
+DEFAULT_CROP = Crop(480, 20, 1100, 817)
 
 
 def _validate_crop(image: Image.Image, crop: Crop) -> None:

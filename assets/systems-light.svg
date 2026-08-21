@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" data-theme="light" data-build="9f4b214a944a">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" data-theme="light" data-build="52731d46e953">
 <title>Things I built because I could</title>
 <desc>A DAG ledger, aviation forecasting at scale, and Jarvis: distributed systems to large-scale ML to edge AI.</desc>
 <style>
@@ -59,9 +59,9 @@
 <text x="330" y="84" class="sans system-title" fill="#191d20">AVIATION FORECASTING</text>
 <text x="330" y="108" class="sans system-subtitle" fill="#3f474c">demand forecasting 65 days ahead</text>
 <text x="330" y="151" class="sans evidence" fill="#a45d18">&gt;90% accuracy</text>
-<text x="502" y="151" class="sans evidence" fill="#191d20">~800 TB/day</text>
+<text x="520" y="151" class="sans evidence" fill="#191d20">~800 TB/day</text>
 <text x="330" y="170" class="mono fact" fill="#727b7e">forecast</text>
-<text x="502" y="170" class="mono fact" fill="#727b7e">data environment</text>
+<text x="520" y="170" class="mono fact" fill="#727b7e">data environment</text>
 <path d="M330 290H650" stroke="#d4cec2"/>
 <path d="M550 190V306" stroke="#d4cec2" stroke-dasharray="4 5"/>
 <polyline points="340,279 370,266 400,270 430,245 460,253 490,232 520,242 550,218" fill="none" stroke="#3f474c" stroke-width="2"/>

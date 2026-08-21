@@ -42,7 +42,7 @@ PALETTES: dict[Theme, Palette] = {
         amber="#a45d18",
         cyan="#2f7773",
         line="#d4cec2",
-        portrait=("#d8d1c5", "#a89f91", "#706b64", "#292d2f"),
+        portrait=("#292d2f", "#706b64", "#a89f91", "#d8d1c5"),
     ),
 }
 

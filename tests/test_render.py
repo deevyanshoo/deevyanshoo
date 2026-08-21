@@ -115,6 +115,14 @@ class DeterministicRenderTests(unittest.TestCase):
         widths = [int(node.attrib["data-module-width"]) for node in modules]
         self.assertEqual(len(set(widths)), 3)
         self.assertGreater(widths[-1], max(widths[:-1]))
+        evidence = {
+            "".join(node.itertext()): float(node.attrib["x"])
+            for node in root.iter("{http://www.w3.org/2000/svg}text")
+        }
+        self.assertGreaterEqual(
+            evidence["~800 TB/day"] - evidence[">90% accuracy"],
+            190,
+        )
         for node in root.iter("{http://www.w3.org/2000/svg}text"):
             self.assertLessEqual(float(node.attrib["y"]), 420)
 
