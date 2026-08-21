@@ -110,7 +110,10 @@ the final supervisor review.
 
 ### BLOCKER
 
-- None.
+- Source fingerprints initially depended on CRLF/LF checkout bytes, and local Windows
+  generation could leave EOL-only asset changes. Resolved with normalized fingerprint
+  inputs, an explicit LF checkout policy, and regression tests exercised in both
+  linked worktrees.
 
 ### MAJOR
 
