@@ -70,7 +70,7 @@ def _frame(theme: Theme, width: int, height: int, title: str, desc: str) -> tupl
     if theme not in PALETTES:
         raise ValueError("theme must be 'light' or 'dark'")
     p = PALETTES[theme]
-    lines = [
+    return [
         '<?xml version="1.0" encoding="UTF-8"?>',
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" data-theme="{theme}">',
         f'<title>{escape(title)}</title>',
@@ -97,17 +97,16 @@ def _frame(theme: Theme, width: int, height: int, title: str, desc: str) -> tupl
         f'<rect width="{width}" height="{height}" rx="18" fill="{p.bg}"/>',
         f'<rect x="1" y="1" width="{width - 2}" height="{height - 2}" rx="17" fill="{p.panel}" stroke="{p.border}"/>',
         f'<rect x="1" y="1" width="{width - 2}" height="{height - 2}" rx="17" fill="url(#grid)" opacity=".45"/>',
-    ]
-    return lines, p
+    ], p
 
 
 def render_profile(data: ProfileData, theme: Theme, *, status_label: str = "LIVE") -> str:
     lines, p = _frame(
         theme,
         1200,
-        520,
+        560,
         "Divyanshu Goyal — AI architect, founder, builder",
-        "Image-derived ASCII portrait, Nnomi current mission, AI systems focus, and aggregate GitHub activity.",
+        "Operator profile for Divyanshu Goyal: AI systems, Nnomi, and selected live GitHub activity.",
     )
     stats = data.stats
 
@@ -116,7 +115,7 @@ def render_profile(data: ProfileData, theme: Theme, *, status_label: str = "LIVE
         _text(30, 35, "deevyanshoo@operator", "mono eyebrow", p.muted),
         f'<circle cx="990" cy="31" r="4" fill="{p.green}"/>',
         _text(1004, 35, f"{status_label} // {stats.contributions_ytd:,} CONTRIBUTIONS YTD", "mono micro", p.muted),
-        f'<line x1="432" y1="76" x2="432" y2="458" stroke="{p.border}"/>',
+        f'<line x1="432" y1="76" x2="432" y2="476" stroke="{p.border}"/>',
         _text(30, 84, "PORTRAIT // ASCII SCAN", "mono eyebrow", p.cyan),
     ])
 
@@ -126,7 +125,6 @@ def render_profile(data: ProfileData, theme: Theme, *, status_label: str = "LIVE
         y += 13
 
     lines.extend([
-        _text(30, 476, "image-derived // approved portrait", "mono micro", p.muted),
         _text(470, 86, "IDENTITY // 00", "mono eyebrow", p.cyan),
         _text(470, 137, NAME, "sans name", p.primary),
         _text(470, 169, ROLE, "mono role", p.amber),
@@ -135,28 +133,33 @@ def render_profile(data: ProfileData, theme: Theme, *, status_label: str = "LIVE
         f'<line x1="470" y1="274" x2="1168" y2="274" stroke="{p.border}"/>',
         _text(470, 302, f"CURRENT MISSION // {CURRENT_MISSION}", "mono eyebrow", p.amber),
         _text(470, 338, CURRENT_MISSION, "sans mission", p.primary),
-        _text(590, 336, CURRENT_MISSION_URL, "mono small", p.cyan),
+        _text(594, 336, CURRENT_MISSION_URL, "mono small", p.cyan),
         _text(470, 365, CURRENT_MISSION_LINE_1, "sans body", p.secondary),
         _text(470, 387, CURRENT_MISSION_LINE_2, "sans body", p.secondary),
     ])
 
     journey = (("EARN", 490), ("SPEND", 625), ("PROTECT", 770), ("INVEST", 930), ("WEALTH", 1080))
-    for i, (label, x) in enumerate(journey):
-        if i < len(journey) - 1:
-            lines.append(f'<line x1="{x}" y1="414" x2="{journey[i + 1][1]}" y2="414" stroke="url(#pulse)" stroke-width="2" opacity=".72"/>')
-        dot = p.amber if i < 3 else p.cyan
-        lines.append(f'<circle cx="{x}" cy="414" r="5" fill="{dot}"/>')
+    for index, (label, x) in enumerate(journey):
+        if index < len(journey) - 1:
+            lines.append(
+                f'<line x1="{x}" y1="414" x2="{journey[index + 1][1]}" y2="414" '
+                'stroke="url(#pulse)" stroke-width="2" opacity=".72"/>'
+            )
+        color = p.amber if index < 3 else p.cyan
+        lines.append(f'<circle cx="{x}" cy="414" r="5" fill="{color}"/>')
         lines.append(_text(x, 436, label, "mono micro", p.muted, anchor="middle"))
 
     lines.extend([
         _text(470, 462, f"also building // {SECONDARY_MISSION}", "mono micro", p.secondary),
-        f'<line x1="28" y1="490" x2="1172" y2="490" stroke="{p.border}"/>',
+        f'<line x1="28" y1="486" x2="1172" y2="486" stroke="{p.border}"/>',
         _text(30, 510, LOCATION, "mono micro", p.muted),
-        _text(220, 510, "MSE // PENN", "mono micro", p.muted),
-        _text(350, 510, "AI ARCHITECT @ ZS", "mono micro", p.muted),
-        _text(540, 510, "runtime v26", "mono micro", p.muted),
-        _text(690, 510, "inference local > cloud", "mono micro", p.muted),
-        _text(930, 510, "garage_target 911", "mono micro", p.amber),
+        _text(280, 510, "MSE DATA SCIENCE // UPENN", "mono micro", p.muted),
+        _text(610, 510, "AI ARCHITECT @ ZS", "mono micro", p.muted),
+        f'<line x1="28" y1="524" x2="1172" y2="524" stroke="{p.border}" opacity=".55"/>',
+        _text(30, 548, "coffee ........ required", "mono micro", p.amber),
+        _text(300, 548, "runtime ........ v26", "mono micro", p.muted),
+        _text(520, 548, "inference ..... local > cloud", "mono micro", p.cyan),
+        _text(865, 548, "garage_target .. 911", "mono micro", p.amber),
         '</svg>',
     ])
     return "\n".join(lines) + "\n"
@@ -166,7 +169,7 @@ def render_systems(theme: Theme) -> str:
     lines, p = _frame(
         theme,
         1200,
-        360,
+        380,
         "Things I built because I could",
         "JARVIS hybrid inference, a DAG ledger, and large-scale aviation forecasting.",
     )
@@ -174,12 +177,13 @@ def render_systems(theme: Theme) -> str:
         _text(28, 36, "THINGS I BUILT BECAUSE I COULD // 02", "mono eyebrow", p.amber),
         _text(1170, 36, "distributed systems  >  large-scale ML  >  edge AI", "mono small", p.muted, anchor="end"),
         f'<line x1="28" y1="54" x2="1172" y2="54" stroke="{p.border}"/>',
-        f'<line x1="400" y1="78" x2="400" y2="316" stroke="{p.border}"/>',
-        f'<line x1="800" y1="78" x2="800" y2="316" stroke="{p.border}"/>',
+        f'<line x1="400" y1="78" x2="400" y2="336" stroke="{p.border}"/>',
+        f'<line x1="800" y1="78" x2="800" y2="336" stroke="{p.border}"/>',
         _text(28, 88, "01 // JARVIS", "mono eyebrow", p.cyan),
         _text(28, 120, "HYBRID AI", "sans card-title", p.primary),
-        _text(28, 146, "personal assistant on a phone", "sans body", p.secondary),
+        _text(28, 146, "personal JARVIS on a phone", "sans body", p.secondary),
         f'<rect x="44" y="178" width="74" height="102" rx="12" fill="none" stroke="{p.secondary}" stroke-width="2"/>',
+        _text(81, 236, "J", "sans metric", p.amber, anchor="middle"),
         f'<rect x="155" y="205" width="82" height="46" rx="8" fill="none" stroke="{p.amber}" stroke-width="1.5"/>',
         _text(196, 232, "ROUTER", "mono small", p.amber, anchor="middle"),
         f'<line x1="118" y1="229" x2="155" y2="229" stroke="{p.muted}"/>',
@@ -191,7 +195,7 @@ def render_systems(theme: Theme) -> str:
         f'<rect x="290" y="244" width="82" height="45" rx="7" fill="none" stroke="{p.cyan}"/>',
         _text(331, 264, "CLOUD", "mono small", p.cyan, anchor="middle"),
         _text(331, 280, "LLM", "mono small", p.secondary, anchor="middle"),
-        _text(28, 318, "privacy HIGH // latency LOW // cloud optional", "mono small", p.muted),
+        _text(28, 330, "privacy HIGH // latency LOW // cloud optional", "mono small", p.muted),
         _text(428, 88, "02 // DAG LEDGER", "mono eyebrow", p.cyan),
         _text(428, 120, "DISTRIBUTED SYSTEMS", "sans card-title", p.primary),
         _text(428, 146, "peer-approved blocks without a linear chain", "sans body", p.secondary),
@@ -203,28 +207,28 @@ def render_systems(theme: Theme) -> str:
         x1, y1 = nodes[left]
         x2, y2 = nodes[right]
         lines.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{p.muted}" stroke-width="1.5" opacity=".75"/>')
-    for i, (_, (x, y)) in enumerate(nodes.items()):
-        color = p.amber if i in (0, 1, 3) else p.cyan
+    for index, (x, y) in enumerate(nodes.values()):
+        color = p.amber if index in (0, 1, 3) else p.cyan
         lines.append(f'<circle cx="{x}" cy="{y}" r="8" fill="{p.panel}" stroke="{color}" stroke-width="2"/>')
         lines.append(f'<circle cx="{x}" cy="{y}" r="3" fill="{color}"/>')
 
     lines.extend([
-        _text(428, 318, "DAG growth // P2P approvals // custom consensus", "mono small", p.muted),
+        _text(428, 330, "DAG growth // P2P approvals // custom consensus", "mono small", p.muted),
         _text(828, 88, "03 // AVIATION", "mono eyebrow", p.cyan),
         _text(828, 120, "FORECASTING AT SCALE", "sans card-title", p.primary),
         _text(828, 146, "demand prediction 65 days ahead", "sans body", p.secondary),
-        _text(828, 200, ">90%", "sans metric", p.amber),
-        _text(910, 198, "forecast accuracy", "mono small", p.muted),
-        _text(828, 238, "~800 TB/day", "sans metric", p.primary),
-        _text(970, 236, "data environment", "mono small", p.muted),
-        f'<line x1="828" y1="285" x2="1150" y2="285" stroke="{p.border}"/>',
-        f'<line x1="975" y1="260" x2="975" y2="306" stroke="{p.border}" stroke-dasharray="4 4"/>',
-        f'<polyline points="828,287 860,272 892,279 924,248 956,259 988,240 1020,246 1052,220 1084,229 1116,208 1148,214" fill="none" stroke="{p.secondary}" stroke-width="2"/>',
-        f'<polyline points="975,257 1008,246 1041,236 1074,224 1107,215 1148,205" fill="none" stroke="{p.amber}" stroke-width="2" stroke-dasharray="5 4"/>',
-        _text(828, 310, "D+00", "mono small", p.muted),
-        _text(975, 310, "FORECAST", "mono small", p.amber, anchor="middle"),
-        _text(1150, 310, "D+65", "mono small", p.muted, anchor="end"),
-        _text(1170, 338, "not demos // systems that had to work", "mono small", p.muted, anchor="end"),
+        _text(828, 194, ">90%", "sans metric", p.amber),
+        _text(828, 215, "forecast accuracy", "mono small", p.muted),
+        _text(1000, 194, "~800 TB/day", "sans metric", p.primary),
+        _text(1000, 215, "data environment", "mono small", p.muted),
+        f'<line x1="828" y1="292" x2="1150" y2="292" stroke="{p.border}"/>',
+        f'<line x1="975" y1="258" x2="975" y2="326" stroke="{p.border}" stroke-dasharray="4 4"/>',
+        f'<polyline points="828,294 860,278 892,284 924,257 956,267 988,250 1020,256 1052,236 1084,244 1116,226 1148,232" fill="none" stroke="{p.secondary}" stroke-width="2"/>',
+        f'<polyline points="975,267 1008,257 1041,248 1074,239 1107,230 1148,221" fill="none" stroke="{p.amber}" stroke-width="2" stroke-dasharray="5 4"/>',
+        _text(828, 320, "D+00", "mono small", p.muted),
+        _text(975, 320, "FORECAST", "mono small", p.amber, anchor="middle"),
+        _text(1150, 320, "D+65", "mono small", p.muted, anchor="end"),
+        _text(1170, 364, "not demos // systems that had to work", "mono small", p.muted, anchor="end"),
         '</svg>',
     ])
     return "\n".join(lines) + "\n"
