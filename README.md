@@ -1,44 +1,58 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/profile-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/profile-light.svg">
-  <img alt="Divyanshu Goyal — AI architect, founder, and builder" src="assets/profile-light.svg" width="100%">
+  <img alt="Divyanshu Goyal — AI Architect, founder, and builder; University of Pennsylvania; Gurugram ↔ wherever" src="assets/profile-light.svg" width="100%">
 </picture>
 
-AI Architect at **ZS** · MSE Data Science, **University of Pennsylvania** · **Gurugram ↔ wherever**
+## Building
 
-### `01 / BUILDING`
+### [Nnomi](https://nnomi.com)
 
-**[Nnomi](https://nnomi.com)** — a financial coach for the whole journey: spend smarter, build safety, protect what matters, invest, and grow wealth.
+**An India-first financial coach for the journey from earning money to building wealth.**
 
-**[Chauffit](https://chauffit.com)** — an AI-powered, safety-first marketplace for on-demand drivers. Live on Android; iOS in progress.
+Money advice often starts after the hard part. Nnomi starts at the paycheck: see where it goes, make better everyday decisions, build a safety net, then invest with context.
+
+[Meet Nnomi →](https://nnomi.com)
+
+### [Chauffit](https://chauffit.com)
+
+**AI-powered, safety-first on-demand driver marketplace.**
+
+A serious attempt at making it easier to get home safely when you need a driver, not another ride.
+
+[Visit Chauffit →](https://chauffit.com)
+
+## Things I built because I could
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/systems-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/systems-light.svg">
-  <img alt="Selected systems — JARVIS, a DAG ledger, and large-scale aviation forecasting" src="assets/systems-light.svg" width="100%">
+  <img alt="JARVIS mobile AI architecture, an experimental DAG ledger, and large-scale aviation forecasting" src="assets/systems-light.svg" width="100%">
 </picture>
 
-### `03 / CURRENT OBSESSIONS`
+## Current obsessions
 
-`LLMs + SLMs` · `agentic systems` · `RAG` · `edge AI` · `hybrid inference` · `quantization` · `deep learning` · `ML systems` · `hardware`
+Smaller models, better routers, agents with fewer excuses, and AI that knows when not to call the cloud.
 
-Usually shipping with `Python` · `TypeScript` · `C++` · `FastAPI` · `React / Next.js` · `PostgreSQL` · `Redis` · `Docker` · `Kubernetes` · `AWS`.
+Working set: Python, TypeScript, C++, FastAPI, Next.js, PostgreSQL, Docker, Kubernetes, and AWS.
 
-### `04 / OUTSIDE THE TERMINAL`
+## Outside the terminal
 
-`F1` · `football` · `NBA` · `badminton` · `cars` · `watches` · `gaming` · `music` · `coffee` · `hardware rabbit holes`
+F1, football, watches, cars, music, coffee, and taking hardware apart with unjustified confidence.
 
 Porsche has the garage target. BMW keeps making the shortlist.
 
 > **build weird things. make them useful. ship them.**
 
-### `05 / FIND ME`
+## Find me
 
 [LinkedIn](https://www.linkedin.com/in/divyanshoo) · [X](https://x.com/divyanshoo) · [Nnomi](https://nnomi.com) · [Chauffit](https://chauffit.com)
 
 <details>
-<summary><code>telemetry / privacy</code></summary>
+<summary>Telemetry & privacy</summary>
 
-The live activity in the hero is generated from aggregate GitHub counts. Private repository names, metadata, and content never enter the renderer or committed SVGs.
+The hero may show one live signal: year-to-date GitHub contributions, and only when the count is at least 100.
+
+Private activity can affect GitHub's anonymous restricted-contribution aggregate. The collector never requests private repository names, descriptions, topics, organizations, commits, branches, issues, filenames, or URLs, and none of that metadata can enter the renderer or committed SVGs.
 
 </details>
