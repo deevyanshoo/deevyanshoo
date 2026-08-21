@@ -4,7 +4,7 @@ import unittest
 import xml.etree.ElementTree as ET
 
 from operator_profile.model import GitHubStats, ProfileData
-from operator_profile.render import render_profile
+from operator_profile.render import render_profile, render_systems
 
 
 class DeterministicRenderTests(unittest.TestCase):
@@ -29,26 +29,61 @@ class DeterministicRenderTests(unittest.TestCase):
             render_profile(self.data, "dark").encode(),
             render_profile(self.data, "dark").encode(),
         )
+        self.assertEqual(
+            render_systems("dark").encode(),
+            render_systems("dark").encode(),
+        )
 
     def test_both_themes_are_valid_and_distinct(self) -> None:
         light = render_profile(self.data, "light")
         dark = render_profile(self.data, "dark")
-        ET.fromstring(light)
-        ET.fromstring(dark)
+        systems_light = render_systems("light")
+        systems_dark = render_systems("dark")
+        for svg in (light, dark, systems_light, systems_dark):
+            ET.fromstring(svg)
         self.assertIn('data-theme="light"', light)
         self.assertIn('data-theme="dark"', dark)
         self.assertNotEqual(light, dark)
+        self.assertNotEqual(systems_light, systems_dark)
 
-    def test_output_contains_story_and_capability_neutral_privacy_label(self) -> None:
+    def test_profile_has_identity_hierarchy_without_vanity_metrics(self) -> None:
         svg = render_profile(self.data, "dark")
         for phrase in (
-            "DEEVYANSHOO // OPERATOR", "making large models fit small boxes",
-            "Nnomi", "Chauffit", "runtime", "v26", "garage_target", "911",
-            "RECENT REPOS", "PRIVACY MODE", "AGGREGATE ONLY",
+            "deevyanshoo@operator",
+            "making large models fit small boxes",
+            "CURRENT MISSION // NNOMI",
+            "NNOMI",
+            "CHAUFFIT",
+            "runtime v26",
+            "garage_target 911",
+            "742 CONTRIB YTD",
+            "97 MERGED PRS",
         ):
             self.assertIn(phrase, svg)
-        self.assertNotIn("PRIVATE ACTIVITY", svg)
-        self.assertNotIn("SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE", svg)
+
+        for unwanted in (
+            "STARS EARNED",
+            "PUBLIC REPOS",
+            "RECENT REPOS",
+            "PRIVACY MODE",
+            "SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE",
+        ):
+            self.assertNotIn(unwanted, svg)
+
+    def test_systems_panel_tells_engineering_story(self) -> None:
+        svg = render_systems("dark")
+        for phrase in (
+            "THINGS I BUILT BECAUSE I COULD",
+            "JARVIS",
+            "HYBRID AI",
+            "DAG LEDGER",
+            "DISTRIBUTED SYSTEMS",
+            "AVIATION",
+            "FORECASTING AT SCALE",
+            "&gt;90%",
+            "~800 TB/day",
+        ):
+            self.assertIn(phrase, svg)
 
     def test_renderer_escapes_dynamic_text(self) -> None:
         svg = render_profile(self.data, "dark", status_label="A&B <ready>")
