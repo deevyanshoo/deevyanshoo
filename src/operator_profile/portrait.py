@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 
-# Image-derived from the approved desk portrait. The original photo is intentionally
-# not committed; this cropped, contrast-normalized, quantized scan preserves the
-# distinctive hairline, glasses, beard, and face shape without publishing the photo.
+# Cropped, contrast-normalized ASCII scan tuned from the desk portrait.
+# The source photo is intentionally not committed to the public profile repository.
 PORTRAIT = (
     '           =++*%%*+-:.',
     '         @@@@@@@@@@@@@%=.',
