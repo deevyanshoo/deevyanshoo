@@ -1,6 +1,14 @@
 name: Refresh profile
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/operator_profile/**"
+      - "scripts/generate.py"
+      - "data/fallback-stats.json"
+      - "tests/**"
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
