@@ -6,5 +6,8 @@ requires-python = ">=3.12"
 license = "MIT"
 authors = [{name = "Divyanshu Goyal"}]
 
+[project.optional-dependencies]
+portrait = ["Pillow==12.3.0"]
+
 [tool.unittest]
 start-directory = "tests"
