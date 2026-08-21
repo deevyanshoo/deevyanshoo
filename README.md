@@ -4,6 +4,8 @@
   <img alt="Divyanshu Goyal — AI architect, founder, and builder" src="assets/profile-light.svg" width="100%">
 </picture>
 
+AI Architect at **ZS** · MSE Data Science, **University of Pennsylvania** · **Gurugram ↔ wherever**
+
 ### `01 / BUILDING`
 
 **[Nnomi](https://nnomi.com)** — a financial coach for the whole journey: spend smarter, build safety, protect what matters, invest, and grow wealth.
