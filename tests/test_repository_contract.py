@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ReadmeContractTests(unittest.TestCase):
+    def test_text_checkouts_use_lf_for_deterministic_generation(self) -> None:
+        attributes = (ROOT / ".gitattributes").read_text(encoding="utf-8")
+        self.assertIn("* text=auto eol=lf", attributes)
+
     def test_public_assets_exclude_internal_notes_and_vanity_metrics(self) -> None:
         names = (
             "profile-dark.svg", "profile-light.svg",
