@@ -13,12 +13,16 @@ NAME = "DIVYANSHU GOYAL"
 ROLE = "AI ARCHITECT // FOUNDER // BUILDER"
 POSITIONING = "I build ambitious AI systems from first principles to production."
 TAGLINE = "making large models fit small boxes"
-LOCATION = "Gurugram ↔ wherever"
-CURRENT_MISSION = "Nnomi — a financial friend for the full journey to wealth"
-SECONDARY_MISSION = "Chauffit — an AI-powered, safety-first driver marketplace"
+LOCATION = "Gurugram <-> wherever"
+
+CURRENT_MISSION = "NNOMI"
+CURRENT_MISSION_URL = "nnomi.com"
+CURRENT_MISSION_LINE_1 = "A financial coach for the entire journey"
+CURRENT_MISSION_LINE_2 = "from earning money to building wealth."
+SECONDARY_MISSION = "CHAUFFIT // safety-first on-demand driver marketplace"
 
 SELECTED_BUILDS = (
-    Build("JARVIS", "hybrid + on-device inference on a phone"),
-    Build("DAG LEDGER", "decentralized approvals without an ever-growing chain"),
-    Build("AVIATION", "90%+ demand forecasting, 65 days ahead, ~800 TB/day"),
+    Build("JARVIS", "hybrid inference: local SLM + cloud LLM"),
+    Build("DAG LEDGER", "peer-approved blocks + custom consensus"),
+    Build("AVIATION", ">90% forecast accuracy // D+65 // ~800 TB/day"),
 )
