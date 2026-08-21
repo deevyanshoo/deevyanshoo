@@ -49,25 +49,32 @@ class DeterministicRenderTests(unittest.TestCase):
     def test_profile_has_identity_hierarchy_and_personality(self) -> None:
         svg = render_profile(self.data, "dark")
         required = (
-            "deevyanshoo@operator",
+            "DIVYANSHU GOYAL",
+            "AI ARCHITECT · FOUNDER · BUILDER",
             "making large models fit small boxes",
-            "CURRENT MISSION // NNOMI",
             "NNOMI",
-            "CHAUFFIT",
-            "AI-powered, safety-first on-demand driver marketplace",
+            "India-first financial coach",
+            "EARN",
+            "SEE CLEARLY",
+            "PROTECT",
+            "INVEST",
+            "BUILD WEALTH",
             "Gurugram ↔ wherever",
-            "MSE DATA SCIENCE // UPENN",
+            "UNIVERSITY OF PENNSYLVANIA",
             "AI ARCHITECT @ ZS",
             "coffee ........ required",
             "runtime ........ v26",
             "inference ..... local &gt; cloud",
             "garage_target .. 911",
-            "742 CONTRIBUTIONS YTD",
         )
         for phrase in required:
             self.assertIn(phrase, svg)
 
         forbidden = (
+            "IDENTITY //",
+            "PORTRAIT //",
+            "CURRENT MISSION //",
+            "CHAUFFIT",
             "MERGED PRS",
             "STARS EARNED",
             "PUBLIC REPOS",
@@ -76,27 +83,34 @@ class DeterministicRenderTests(unittest.TestCase):
             "approved portrait",
             "approved desk portrait",
             "image-derived",
+            "source portrait",
+            "privacy mode",
             "SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE",
         )
         for phrase in forbidden:
             self.assertNotIn(phrase, svg)
+        self.assertRegex(svg, r'class="sans mission-name"[^>]*>NNOMI</text>')
 
     def test_systems_panel_tells_engineering_story(self) -> None:
         svg = render_systems("dark")
         for phrase in (
             "THINGS I BUILT BECAUSE I COULD",
-            "JARVIS",
-            "personal JARVIS on a phone",
-            "HYBRID AI",
             "DAG LEDGER",
-            "DISTRIBUTED SYSTEMS",
-            "AVIATION",
-            "FORECASTING AT SCALE",
-            "&gt;90%",
+            "crawler / network logic",
+            "peer approvals + validation incentives",
+            "65 days ahead",
+            "&gt;90% accuracy",
             "~800 TB/day",
-            "not demos // systems that had to work",
+            "JARVIS",
+            "mobile-first personal AI",
+            "quantized local SLM",
+            "cloud LLM",
+            "privacy · latency · capability",
         ):
             self.assertIn(phrase, svg)
+        self.assertNotIn("HYBRID AI", svg)
+        self.assertLess(svg.index("DAG LEDGER"), svg.index("AVIATION FORECASTING"))
+        self.assertLess(svg.index("AVIATION FORECASTING"), svg.index("JARVIS"))
 
     def test_renderer_escapes_dynamic_text(self) -> None:
         svg = render_profile(self.data, "dark", status_label="A&B <ready>")

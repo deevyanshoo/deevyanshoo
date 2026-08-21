@@ -8,6 +8,22 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ReadmeContractTests(unittest.TestCase):
+    def test_public_assets_exclude_internal_notes_and_vanity_metrics(self) -> None:
+        names = (
+            "profile-dark.svg", "profile-light.svg",
+            "systems-dark.svg", "systems-light.svg",
+        )
+        public = [(ROOT / "README.md").read_text(encoding="utf-8")]
+        public.extend((ROOT / "assets" / name).read_text(encoding="utf-8") for name in names)
+        forbidden = (
+            "approved portrait", "approved desk portrait", "image-derived",
+            "source portrait", "privacy mode", "followers", "streak",
+            "stars earned", "public repos", "language %",
+        )
+        combined = "\n".join(public).lower()
+        for phrase in forbidden:
+            self.assertNotIn(phrase, combined)
+
     def test_readme_has_theme_art_and_native_accessible_story(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         lower = readme.lower()
@@ -19,6 +35,7 @@ class ReadmeContractTests(unittest.TestCase):
         self.assertIn('alt="Divyanshu Goyal', readme)
         for phrase in (
             "Nnomi",
+            "India-first financial coach",
             "Chauffit",
             "JARVIS",
             "DAG",
@@ -33,6 +50,8 @@ class ReadmeContractTests(unittest.TestCase):
             "build weird things. make them useful. ship them.",
         ):
             self.assertIn(phrase, readme)
+        self.assertLess(readme.index("## Building"), readme.index("## Things I built because I could"))
+        self.assertLess(readme.index("Nnomi"), readme.index("Chauffit"))
         for forbidden in (
             "followers",
             "streak",
@@ -42,6 +61,11 @@ class ReadmeContractTests(unittest.TestCase):
             "approved portrait",
             "approved desk portrait",
             "image-derived",
+            "source portrait",
+            "privacy mode",
+            "live on android",
+            "ios in progress",
+            "### `01 /",
         ):
             self.assertNotIn(forbidden, lower)
 
