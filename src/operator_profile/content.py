@@ -4,25 +4,32 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True, slots=True)
-class Build:
+class JourneyStep:
     label: str
-    detail: str
+    emphasis: str
 
 
 NAME = "DIVYANSHU GOYAL"
-ROLE = "AI ARCHITECT // FOUNDER // BUILDER"
-POSITIONING = "I build ambitious AI systems from first principles to production."
+ROLE = "AI ARCHITECT \u00b7 FOUNDER \u00b7 BUILDER"
 TAGLINE = "making large models fit small boxes"
-LOCATION = "Gurugram ↔ wherever"
+LOCATION = "Gurugram \u2194 wherever"
+EDUCATION = "MSE DATA SCIENCE \u00b7 UNIVERSITY OF PENNSYLVANIA"
+WORK = "AI ARCHITECT @ ZS"
 
-CURRENT_MISSION = "NNOMI"
-CURRENT_MISSION_URL = "nnomi.com"
-CURRENT_MISSION_LINE_1 = "A financial coach for the entire journey"
-CURRENT_MISSION_LINE_2 = "from earning money → building wealth."
-SECONDARY_MISSION = "CHAUFFIT // AI-powered, safety-first on-demand driver marketplace"
+MISSION_NAME = "NNOMI"
+MISSION_URL = "NNOMI.COM"
+MISSION_LINE = "India-first financial coach for earning money \u2192 building wealth."
+MISSION_JOURNEY = (
+    JourneyStep("EARN", "income"),
+    JourneyStep("SEE CLEARLY", "decisions"),
+    JourneyStep("PROTECT", "safety net"),
+    JourneyStep("INVEST", "growth"),
+    JourneyStep("BUILD WEALTH", "long game"),
+)
 
-SELECTED_BUILDS = (
-    Build("JARVIS", "hybrid inference: local SLM + cloud LLM"),
-    Build("DAG LEDGER", "peer-approved blocks + custom consensus"),
-    Build("AVIATION", ">90% forecast accuracy // D+65 // ~800 TB/day"),
+EASTER_EGGS = (
+    "coffee ........ required",
+    "runtime ........ v26",
+    "inference ..... local > cloud",
+    "garage_target .. 911",
 )

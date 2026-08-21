@@ -9,20 +9,7 @@ from operator_profile.render import render_profile, render_systems
 
 class DeterministicRenderTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.data = ProfileData(
-            stats=GitHubStats(
-                contributions_ytd=742,
-                private_contributions_ytd=311,
-                commit_contributions_ytd=526,
-                pull_request_contributions_ytd=84,
-                issue_contributions_ytd=19,
-                review_contributions_ytd=113,
-                merged_pull_requests=97,
-                public_repositories=4,
-                repositories_contributed_to=18,
-                stars_earned=21,
-            )
-        )
+        self.data = ProfileData(stats=GitHubStats(742, 311))
 
     def test_same_input_produces_byte_identical_svg(self) -> None:
         self.assertEqual(
@@ -50,7 +37,7 @@ class DeterministicRenderTests(unittest.TestCase):
         svg = render_profile(self.data, "dark")
         required = (
             "DIVYANSHU GOYAL",
-            "AI ARCHITECT · FOUNDER · BUILDER",
+            "AI ARCHITECT \u00b7 FOUNDER \u00b7 BUILDER",
             "making large models fit small boxes",
             "NNOMI",
             "India-first financial coach",
@@ -59,7 +46,7 @@ class DeterministicRenderTests(unittest.TestCase):
             "PROTECT",
             "INVEST",
             "BUILD WEALTH",
-            "Gurugram ↔ wherever",
+            "Gurugram \u2194 wherever",
             "UNIVERSITY OF PENNSYLVANIA",
             "AI ARCHITECT @ ZS",
             "coffee ........ required",
@@ -105,7 +92,7 @@ class DeterministicRenderTests(unittest.TestCase):
             "mobile-first personal AI",
             "quantized local SLM",
             "cloud LLM",
-            "privacy · latency · capability",
+            "privacy \u00b7 latency \u00b7 capability",
         ):
             self.assertIn(phrase, svg)
         self.assertNotIn("HYBRID AI", svg)
@@ -116,6 +103,25 @@ class DeterministicRenderTests(unittest.TestCase):
         svg = render_profile(self.data, "dark", status_label="A&B <ready>")
         self.assertIn("A&amp;B &lt;ready&gt;", svg)
         ET.fromstring(svg)
+
+    def test_contribution_signal_is_hidden_below_threshold(self) -> None:
+        quiet = ProfileData(stats=GitHubStats(99, 30))
+        visible = ProfileData(stats=GitHubStats(100, 30))
+        self.assertNotIn("CONTRIBUTIONS YTD", render_profile(quiet, "dark"))
+        self.assertIn("100 CONTRIBUTIONS YTD", render_profile(visible, "dark"))
+
+    def test_hero_geometry_and_hierarchy_are_explicit(self) -> None:
+        svg = render_profile(self.data, "dark")
+        root = ET.fromstring(svg)
+        self.assertEqual(root.attrib["width"], "1200")
+        self.assertEqual(root.attrib["height"], "560")
+        self.assertLess(
+            svg.index("Portrait of Divyanshu Goyal"),
+            svg.index("DIVYANSHU GOYAL"),
+        )
+        self.assertLess(svg.index("DIVYANSHU GOYAL"), svg.index(">NNOMI</text>"))
+        for node in root.iter("{http://www.w3.org/2000/svg}text"):
+            self.assertLessEqual(float(node.attrib["y"]), 560)
 
 
 if __name__ == "__main__":
