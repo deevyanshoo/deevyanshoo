@@ -4,21 +4,27 @@
   <img alt="Divyanshu Goyal — AI architect, founder, and builder" src="assets/profile-light.svg" width="100%">
 </picture>
 
-## I build ambitious AI systems from first principles to production.
+### `01 / BUILDING`
 
-I’m Divyanshu Goyal—an AI Architect at ZS, founder, and engineer based in **Gurugram ↔ wherever**. I work where frontier models meet unglamorous real-world constraints: edge hardware, production operations, fragmented data, and decisions that matter.
+**[Nnomi](https://nnomi.com)** — a financial coach for the whole journey: spend smarter, build safety, protect what matters, invest, and grow wealth.
 
-### Current mission
+**[Chauffit](https://chauffit.com)** — a safety-first marketplace for on-demand drivers. Live on Android; iOS in progress.
 
-- **[Nnomi](https://nnomi.com)** — a financial friend and coach for the full journey from budgeting and saving to protection and investing.
-- **[Chauffit](https://chauffit.com)** — an AI-powered, safety-first marketplace for on-demand drivers.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/systems-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/systems-light.svg">
+  <img alt="Selected systems — JARVIS, a DAG ledger, and large-scale aviation forecasting" src="assets/systems-light.svg" width="100%">
+</picture>
 
-### Selected builds
+### `03 / CURRENT OBSESSIONS`
 
-- **JARVIS on a phone** — a personal assistant using hybrid cloud and on-device inference.
-- **Decentralized DAG ledger** — peer-approved blocks without an ever-growing linear chain.
-- **Large-scale aviation forecasting** — 90%+ demand accuracy 65 days ahead across roughly 800 TB of daily data.
+`LLMs + SLMs` · `agentic systems` · `edge AI` · `hybrid inference` · `quantization` · `deep learning` · `ML systems` · `hardware`
 
-I studied Data Science in the MSE program at the **University of Pennsylvania**. These days I’m especially interested in agentic systems, SLMs, quantization, hybrid inference, and—in the most literal sense—**making large models fit small boxes**.
+> **build weird things. make them useful. ship them.**
 
-The telemetry above is generated from aggregate GitHub counts. Private repository names, metadata, and content never enter the renderer or committed output.
+<details>
+<summary><code>telemetry / privacy</code></summary>
+
+The live activity in the hero is generated from aggregate GitHub counts. Private repository names, metadata, and content never enter the renderer or committed SVGs.
+
+</details>
