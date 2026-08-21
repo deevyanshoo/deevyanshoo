@@ -13,7 +13,7 @@ NAME = "DIVYANSHU GOYAL"
 ROLE = "AI ARCHITECT // FOUNDER // BUILDER"
 POSITIONING = "I build ambitious AI systems from first principles to production."
 TAGLINE = "making large models fit small boxes"
-LOCATION = "Gurugram <-> wherever"
+LOCATION = "Gurugram ↔ wherever"
 
 CURRENT_MISSION = "NNOMI"
 CURRENT_MISSION_URL = "nnomi.com"
