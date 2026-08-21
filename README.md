@@ -46,7 +46,7 @@ Porsche has the garage target. BMW keeps making the shortlist.
 
 ## Find me
 
-[LinkedIn](https://www.linkedin.com/in/divyanshoo) · [X](https://x.com/divyanshoo) · [Nnomi](https://nnomi.com) · [Chauffit](https://chauffit.com)
+[LinkedIn](https://www.linkedin.com/in/divyanshoo) · [Nnomi](https://nnomi.com) · [Chauffit](https://chauffit.com)
 
 <details>
 <summary>Telemetry & privacy</summary>

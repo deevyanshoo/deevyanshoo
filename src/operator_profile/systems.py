@@ -13,7 +13,7 @@ def _dag(colors: Palette) -> list[str]:
     lines = [
         '<g data-system="dag" data-module-width="280">',
         text(24, 84, "DAG LEDGER", "sans system-title", colors.ink),
-        text(24, 108, "experimental distributed ledger", "sans system-subtitle", colors.secondary),
+        text(24, 108, "alternative consensus experiment", "sans system-subtitle", colors.secondary),
         text(24, 139, "crawler / network logic", "mono fact", colors.cyan),
         text(24, 157, "peer approvals + validation incentives", "mono fact", colors.muted),
     ]
@@ -36,7 +36,7 @@ def _dag(colors: Palette) -> list[str]:
     lines.extend(
         (
             text(24, 326, "DAG, not a linear chain.", "sans note", colors.secondary),
-            text(24, 346, "Testing another storage shape.", "sans note", colors.muted),
+            text(24, 346, "Exploring alternatives to linear-chain growth.", "sans note", colors.muted),
             "</g>",
         )
     )

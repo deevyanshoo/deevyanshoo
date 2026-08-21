@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" data-theme="dark" data-build="52731d46e953">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" data-theme="dark" data-build="381b601c461c">
 <title>Things I built because I could</title>
 <desc>A DAG ledger, aviation forecasting at scale, and Jarvis: distributed systems to large-scale ML to edge AI.</desc>
 <style>
@@ -29,7 +29,7 @@
 <path d="M670 64V372" stroke="#263039"/>
 <g data-system="dag" data-module-width="280">
 <text x="24" y="84" class="sans system-title" fill="#f3f0e8">DAG LEDGER</text>
-<text x="24" y="108" class="sans system-subtitle" fill="#c1c7cc">experimental distributed ledger</text>
+<text x="24" y="108" class="sans system-subtitle" fill="#c1c7cc">alternative consensus experiment</text>
 <text x="24" y="139" class="mono fact" fill="#69b8b0">crawler / network logic</text>
 <text x="24" y="157" class="mono fact" fill="#77828b">peer approvals + validation incentives</text>
 <path d="M55 218L116 178" stroke="#263039" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -53,7 +53,7 @@
 <circle cx="258" cy="270" r="10" fill="#080b0e" stroke="#69b8b0" stroke-width="1.5"/>
 <circle cx="258" cy="270" r="3" fill="#69b8b0"/>
 <text x="24" y="326" class="sans note" fill="#c1c7cc">DAG, not a linear chain.</text>
-<text x="24" y="346" class="sans note" fill="#77828b">Testing another storage shape.</text>
+<text x="24" y="346" class="sans note" fill="#77828b">Exploring alternatives to linear-chain growth.</text>
 </g>
 <g data-system="aviation" data-module-width="334">
 <text x="330" y="84" class="sans system-title" fill="#f3f0e8">AVIATION FORECASTING</text>

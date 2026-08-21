@@ -71,6 +71,23 @@ and materially stronger than the baseline at both inspected widths.
 
 No BLOCKER or MAJOR visual finding remains after iteration 2.
 
+## Iteration 3: supervisor copy fixes
+
+The line-by-line requirements audit found two MAJOR copy omissions: the approved
+degree had been shortened to an acronym, and the DAG module did not explicitly name
+the alternative-consensus experiment. The full degree now fits at 1200 and 880 px
+without colliding with the location or work lines. The DAG subtitle and storage note
+now state the consensus and linear-chain-growth ideas directly.
+
+The complete eight-render matrix was repeated after those longer lines were added.
+No clipping, overlap, or hierarchy regression appeared.
+
+The README was also rendered through GitHub's Markdown API and inspected at 880 px.
+Hero-to-heading spacing, Nnomi/Chauffit rhythm, systems placement, heading rules,
+outside-the-terminal copy, link rail, and collapsed telemetry disclosure all render
+cleanly. A link audit returned 200 for Nnomi and Chauffit. The old X handle returned
+404 while a known active X account returned 200, so the stale X link was removed.
+
 ## Design-critic gates
 
 | Gate | Score | Reason |
@@ -88,3 +105,26 @@ Reference inspected: <https://github.com/Andrew6rant/Andrew6rant> at 880 px.
 
 PASS. The rebuild clearly beats the preserved baseline and meets the visual bar for
 the final supervisor review.
+
+## Final supervisor findings
+
+### BLOCKER
+
+- None.
+
+### MAJOR
+
+- Full approved education line missing from the hero: resolved and regression-tested.
+- Alternative-consensus and linear-chain-growth ideas under-specified: resolved and
+  regression-tested.
+- Public X link returned 404: removed and protected by a repository contract.
+
+### MINOR
+
+- Supporting hero metadata is intentionally quiet at 880 px. It is readable and does
+  not carry the five-second message, so no further enlargement was accepted.
+- Chauffit currently resolves to a parked public domain rather than a product page.
+  The profile keeps the approved product description but makes no release-status
+  claim.
+
+All BLOCKER and MAJOR findings are resolved.

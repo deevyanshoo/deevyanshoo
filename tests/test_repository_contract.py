@@ -67,6 +67,7 @@ class ReadmeContractTests(unittest.TestCase):
             "privacy mode",
             "live on android",
             "ios in progress",
+            "x.com/divyanshoo",
             "### `01 /",
         ):
             self.assertNotIn(forbidden, lower)
