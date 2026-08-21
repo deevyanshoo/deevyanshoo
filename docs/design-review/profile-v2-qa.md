@@ -159,4 +159,9 @@ paragraph before `Current obsessions`, the German-cars sentence renders as one
 clean paragraph, and no public em dash survives. The copy-edit pass found no
 clarity, voice, specificity, or human-tone defect.
 
+The published branch page was then captured at 1200 x 4000 and 880 x 4200. The
+motto is optically centered beneath the systems module. The personal line wraps
+cleanly into two lines in the desktop README column and three lines at 880 px,
+with no indentation, collision, or orphaned fragment.
+
 Verdict: PASS.

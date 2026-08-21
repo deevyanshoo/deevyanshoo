@@ -183,7 +183,7 @@ committed.
 
 Append a dated section to `docs/design-review/profile-v2-qa.md` recording the exact copy and motto placement, both themes at 1200 px and 880 px, the absence of clipping or hierarchy regressions, the public em-dash scan, and the verdict.
 
-- [ ] **Step 4: Commit implementation**
+- [x] **Step 4: Commit implementation**
 
 ```powershell
 git add -- README.md src/operator_profile/content.py tests/test_repository_contract.py tests/test_render.py assets/profile-dark.svg assets/profile-light.svg assets/systems-dark.svg assets/systems-light.svg docs/design-review/profile-v2-qa.md docs/superpowers/plans/2026-08-22-profile-copy-placement.md
@@ -192,7 +192,7 @@ git commit -m "polish: refine profile personality and motto"
 
 Expected: one focused implementation commit.
 
-- [ ] **Step 5: Publish and verify GitHub rendering**
+- [x] **Step 5: Publish and verify GitHub rendering**
 
 ```powershell
 git push origin profile-v2-rebuild
