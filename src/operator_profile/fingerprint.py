@@ -26,7 +26,7 @@ def source_fingerprint(
     digest = sha256()
     for relative in inputs:
         path = root / relative
-        payload = path.read_bytes()
+        payload = path.read_bytes().replace(b"\r\n", b"\n")
         encoded_name = relative.replace("\\", "/").encode("utf-8")
         digest.update(len(encoded_name).to_bytes(4, "big"))
         digest.update(encoded_name)

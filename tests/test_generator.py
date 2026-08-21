@@ -26,6 +26,15 @@ class GeneratorContractTests(unittest.TestCase):
             (root / "two.py").write_text("changed", encoding="utf-8")
             self.assertNotEqual(first, source_fingerprint(root, inputs))
 
+    def test_source_fingerprint_is_independent_of_checkout_line_endings(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "renderer.py"
+            path.write_bytes(b"alpha\r\nbeta\r\n")
+            windows = source_fingerprint(root, ("renderer.py",))
+            path.write_bytes(b"alpha\nbeta\n")
+            self.assertEqual(windows, source_fingerprint(root, ("renderer.py",)))
+
     def test_offline_generation_is_byte_stable(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)
