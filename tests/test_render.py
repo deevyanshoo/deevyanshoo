@@ -46,35 +46,47 @@ class DeterministicRenderTests(unittest.TestCase):
         self.assertNotEqual(light, dark)
         self.assertNotEqual(systems_light, systems_dark)
 
-    def test_profile_has_identity_hierarchy_without_vanity_metrics(self) -> None:
+    def test_profile_has_identity_hierarchy_and_personality(self) -> None:
         svg = render_profile(self.data, "dark")
-        for phrase in (
+        required = (
             "deevyanshoo@operator",
             "making large models fit small boxes",
             "CURRENT MISSION // NNOMI",
             "NNOMI",
             "CHAUFFIT",
-            "runtime v26",
-            "garage_target 911",
+            "AI-powered, safety-first on-demand driver marketplace",
+            "Gurugram ↔ wherever",
+            "MSE DATA SCIENCE // UPENN",
+            "AI ARCHITECT @ ZS",
+            "coffee ........ required",
+            "runtime ........ v26",
+            "inference ..... local &gt; cloud",
+            "garage_target .. 911",
             "742 CONTRIBUTIONS YTD",
-        ):
+        )
+        for phrase in required:
             self.assertIn(phrase, svg)
 
-        for unwanted in (
+        forbidden = (
             "MERGED PRS",
             "STARS EARNED",
             "PUBLIC REPOS",
             "RECENT REPOS",
             "PRIVACY MODE",
+            "approved portrait",
+            "approved desk portrait",
+            "image-derived",
             "SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE",
-        ):
-            self.assertNotIn(unwanted, svg)
+        )
+        for phrase in forbidden:
+            self.assertNotIn(phrase, svg)
 
     def test_systems_panel_tells_engineering_story(self) -> None:
         svg = render_systems("dark")
         for phrase in (
             "THINGS I BUILT BECAUSE I COULD",
             "JARVIS",
+            "personal JARVIS on a phone",
             "HYBRID AI",
             "DAG LEDGER",
             "DISTRIBUTED SYSTEMS",
@@ -82,6 +94,7 @@ class DeterministicRenderTests(unittest.TestCase):
             "FORECASTING AT SCALE",
             "&gt;90%",
             "~800 TB/day",
+            "not demos // systems that had to work",
         ):
             self.assertIn(phrase, svg)
 
