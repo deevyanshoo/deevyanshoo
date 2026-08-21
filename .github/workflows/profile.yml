@@ -42,7 +42,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- assets/profile-dark.svg assets/profile-light.svg
+          git add -- \
+            assets/profile-dark.svg \
+            assets/profile-light.svg \
+            assets/systems-dark.svg \
+            assets/systems-light.svg
           if git diff --cached --quiet; then
             echo "Profile assets are already current."
             exit 0
