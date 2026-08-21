@@ -3,22 +3,8 @@
     "user": {
       "contributionsCollection": {
         "contributionCalendar": {"totalContributions": 0},
-        "restrictedContributionsCount": 0,
-        "totalCommitContributions": 0,
-        "totalPullRequestContributions": 0,
-        "totalIssueContributions": 0,
-        "totalPullRequestReviewContributions": 0
-      },
-      "pullRequests": {"totalCount": 0},
-      "publicRepositories": {"totalCount": 2},
-      "starredRepositories": {
-        "nodes": [
-          {"stargazerCount": 0},
-          {"stargazerCount": 0}
-        ],
-        "pageInfo": {"hasNextPage": false, "endCursor": null}
-      },
-      "recentRepositories": {"totalCount": 2}
+        "restrictedContributionsCount": 0
+      }
     }
   }
 }

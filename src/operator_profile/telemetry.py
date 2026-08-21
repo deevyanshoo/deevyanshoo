@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-from dataclasses import replace
 from datetime import datetime, timezone
 from typing import Any, Callable, Mapping
 from urllib.error import HTTPError, URLError
@@ -20,33 +19,12 @@ query ProfileAggregates(
   $login: String!
   $from: DateTime!
   $to: DateTime!
-  $cursor: String
 ) {
   user(login: $login) {
     contributionsCollection(from: $from, to: $to) {
       contributionCalendar { totalContributions }
       restrictedContributionsCount
-      totalCommitContributions
-      totalPullRequestContributions
-      totalIssueContributions
-      totalPullRequestReviewContributions
     }
-    pullRequests(states: MERGED) { totalCount }
-    publicRepositories: repositories(first: 1, privacy: PUBLIC) { totalCount }
-    starredRepositories: repositories(
-      first: 100
-      after: $cursor
-      privacy: PUBLIC
-      isFork: false
-    ) {
-      nodes { stargazerCount }
-      pageInfo { hasNextPage endCursor }
-    }
-    recentRepositories: repositoriesContributedTo(
-      first: 1
-      includeUserRepositories: true
-      contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, PULL_REQUEST_REVIEW]
-    ) { totalCount }
   }
 }
 """.strip()
@@ -70,27 +48,6 @@ def _user(payload: Mapping[str, Any]) -> Mapping[str, Any]:
     return _mapping(_mapping(payload.get("data"), "data").get("user"), "user")
 
 
-def _star_page(user: Mapping[str, Any]) -> tuple[int, bool, str | None]:
-    repositories = _mapping(user.get("starredRepositories"), "starredRepositories")
-    nodes = repositories.get("nodes")
-    if not isinstance(nodes, list):
-        raise ValueError("GitHub GraphQL response is missing public star totals")
-    stars = sum(
-        _count(_mapping(node, "public repository aggregate").get("stargazerCount"), "stars")
-        for node in nodes
-    )
-    page_info = _mapping(repositories.get("pageInfo"), "star pageInfo")
-    has_next = page_info.get("hasNextPage")
-    cursor = page_info.get("endCursor")
-    if not isinstance(has_next, bool):
-        raise ValueError("GitHub GraphQL returned invalid star pagination state")
-    if cursor is not None and not isinstance(cursor, str):
-        raise ValueError("GitHub GraphQL returned an invalid star cursor")
-    if has_next and not cursor:
-        raise ValueError("GitHub GraphQL omitted the next star cursor")
-    return stars, has_next, cursor
-
-
 def parse_stats(payload: Mapping[str, Any]) -> GitHubStats:
     """Reduce one GraphQL page immediately to anonymous scalar aggregates."""
     user = _user(payload)
@@ -98,43 +55,12 @@ def parse_stats(payload: Mapping[str, Any]) -> GitHubStats:
         user.get("contributionsCollection"), "contributionsCollection"
     )
     calendar = _mapping(contributions.get("contributionCalendar"), "calendar")
-    pull_requests = _mapping(user.get("pullRequests"), "pullRequests")
-    public_repositories = _mapping(
-        user.get("publicRepositories"), "publicRepositories"
-    )
-    recent_repositories = _mapping(
-        user.get("recentRepositories"), "recentRepositories"
-    )
-    stars, _, _ = _star_page(user)
-
     return GitHubStats(
         contributions_ytd=_count(calendar.get("totalContributions"), "contributions"),
-        private_contributions_ytd=_count(
+        restricted_contributions_ytd=_count(
             contributions.get("restrictedContributionsCount"),
             "restricted contributions",
         ),
-        commit_contributions_ytd=_count(
-            contributions.get("totalCommitContributions"), "commit contributions"
-        ),
-        pull_request_contributions_ytd=_count(
-            contributions.get("totalPullRequestContributions"),
-            "pull request contributions",
-        ),
-        issue_contributions_ytd=_count(
-            contributions.get("totalIssueContributions"), "issue contributions"
-        ),
-        review_contributions_ytd=_count(
-            contributions.get("totalPullRequestReviewContributions"),
-            "review contributions",
-        ),
-        merged_pull_requests=_count(pull_requests.get("totalCount"), "merged PRs"),
-        public_repositories=_count(
-            public_repositories.get("totalCount"), "public repos"
-        ),
-        repositories_contributed_to=_count(
-            recent_repositories.get("totalCount"), "recent repositories"
-        ),
-        stars_earned=stars,
     )
 
 
@@ -188,26 +114,9 @@ def fetch_stats(
     year_start = datetime(moment.year, 1, 1, tzinfo=timezone.utc)
     request_page = transport or _post_graphql
 
-    cursor: str | None = None
-    seen_cursors: set[str] = set()
-    total_stars = 0
-    aggregate: GitHubStats | None = None
-    while True:
-        variables: Mapping[str, Any] = {
-            "login": login,
-            "from": year_start.isoformat().replace("+00:00", "Z"),
-            "to": moment.isoformat().replace("+00:00", "Z"),
-            "cursor": cursor,
-        }
-        payload = request_page(token, variables, timeout_seconds)
-        user = _user(payload)
-        page_stars, has_next, next_cursor = _star_page(user)
-        total_stars += page_stars
-        if aggregate is None:
-            aggregate = parse_stats(payload)
-        if not has_next:
-            return replace(aggregate, stars_earned=total_stars)
-        if next_cursor in seen_cursors:
-            raise ValueError("GitHub GraphQL repeated a star pagination cursor")
-        seen_cursors.add(next_cursor)
-        cursor = next_cursor
+    variables: Mapping[str, Any] = {
+        "login": login,
+        "from": year_start.isoformat().replace("+00:00", "Z"),
+        "to": moment.isoformat().replace("+00:00", "Z"),
+    }
+    return parse_stats(request_page(token, variables, timeout_seconds))

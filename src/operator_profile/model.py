@@ -6,15 +6,7 @@ from dataclasses import dataclass, fields
 @dataclass(frozen=True, slots=True)
 class GitHubStats:
     contributions_ytd: int
-    private_contributions_ytd: int
-    commit_contributions_ytd: int
-    pull_request_contributions_ytd: int
-    issue_contributions_ytd: int
-    review_contributions_ytd: int
-    merged_pull_requests: int
-    public_repositories: int
-    repositories_contributed_to: int
-    stars_earned: int
+    restricted_contributions_ytd: int
 
     def __post_init__(self) -> None:
         for field in fields(self):

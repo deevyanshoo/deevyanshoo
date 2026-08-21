@@ -3,24 +3,8 @@
     "user": {
       "contributionsCollection": {
         "contributionCalendar": {"totalContributions": 742},
-        "restrictedContributionsCount": 311,
-        "totalCommitContributions": 526,
-        "totalPullRequestContributions": 84,
-        "totalIssueContributions": 19,
-        "totalPullRequestReviewContributions": 113
+        "restrictedContributionsCount": 311
       },
-      "pullRequests": {"totalCount": 97},
-      "publicRepositories": {"totalCount": 4},
-      "starredRepositories": {
-        "nodes": [
-          {"stargazerCount": 11},
-          {"stargazerCount": 7},
-          {"stargazerCount": 3},
-          {"stargazerCount": 0}
-        ],
-        "pageInfo": {"hasNextPage": false, "endCursor": null}
-      },
-      "recentRepositories": {"totalCount": 18},
       "unexpectedSensitiveValues": ["SENSITIVE_SENTINEL_SHOULD_NOT_SURVIVE"]
     }
   }
