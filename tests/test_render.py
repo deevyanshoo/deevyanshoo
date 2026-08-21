@@ -56,12 +56,12 @@ class DeterministicRenderTests(unittest.TestCase):
             "CHAUFFIT",
             "runtime v26",
             "garage_target 911",
-            "742 CONTRIB YTD",
-            "97 MERGED PRS",
+            "742 CONTRIBUTIONS YTD",
         ):
             self.assertIn(phrase, svg)
 
         for unwanted in (
+            "MERGED PRS",
             "STARS EARNED",
             "PUBLIC REPOS",
             "RECENT REPOS",
