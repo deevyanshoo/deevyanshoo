@@ -14,13 +14,35 @@ class ReadmeContractTests(unittest.TestCase):
         self.assertIn("<picture>", readme)
         self.assertIn("assets/profile-dark.svg", readme)
         self.assertIn("assets/profile-light.svg", readme)
+        self.assertIn("assets/systems-dark.svg", readme)
+        self.assertIn("assets/systems-light.svg", readme)
         self.assertIn('alt="Divyanshu Goyal', readme)
         for phrase in (
-            "Nnomi", "Chauffit", "JARVIS", "DAG", "aviation",
-            "University of Pennsylvania", "Gurugram ↔ wherever",
+            "Nnomi",
+            "Chauffit",
+            "JARVIS",
+            "DAG",
+            "aviation",
+            "University of Pennsylvania",
+            "Gurugram ↔ wherever",
+            "CURRENT OBSESSIONS",
+            "OUTSIDE THE TERMINAL",
+            "F1",
+            "watches",
+            "garage target",
+            "build weird things. make them useful. ship them.",
         ):
             self.assertIn(phrase, readme)
-        for forbidden in ("followers", "streak", "date of birth", "9 feb", "language %"):
+        for forbidden in (
+            "followers",
+            "streak",
+            "date of birth",
+            "9 feb",
+            "language %",
+            "approved portrait",
+            "approved desk portrait",
+            "image-derived",
+        ):
             self.assertNotIn(forbidden, lower)
 
     def test_ci_and_profile_workflows_separate_permissions_and_secrets(self) -> None:
@@ -38,12 +60,18 @@ class ReadmeContractTests(unittest.TestCase):
         self.assertNotIn("git diff --exit-code -- assets", ci)
         self.assertNotIn("pull_request", profile)
         self.assertIn("contents: write", profile)
+        self.assertIn("push:", profile)
+        self.assertIn('"src/operator_profile/**"', profile)
         self.assertIn("schedule:", profile)
         self.assertIn("workflow_dispatch:", profile)
         self.assertIn("secrets.PROFILE_TOKEN", profile)
-        self.assertIn(
-            "git add -- assets/profile-dark.svg assets/profile-light.svg", profile
-        )
+        for asset in (
+            "assets/profile-dark.svg",
+            "assets/profile-light.svg",
+            "assets/systems-dark.svg",
+            "assets/systems-light.svg",
+        ):
+            self.assertIn(asset, profile)
 
     def test_token_documentation_requires_only_read_user_scope(self) -> None:
         contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
