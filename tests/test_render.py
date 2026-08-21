@@ -99,6 +99,25 @@ class DeterministicRenderTests(unittest.TestCase):
         self.assertLess(svg.index("DAG LEDGER"), svg.index("AVIATION FORECASTING"))
         self.assertLess(svg.index("AVIATION FORECASTING"), svg.index("JARVIS"))
 
+    def test_systems_geometry_is_asymmetric_and_in_bounds(self) -> None:
+        root = ET.fromstring(render_systems("dark"))
+        self.assertEqual(root.attrib["width"], "1200")
+        self.assertEqual(root.attrib["height"], "420")
+        modules = [
+            node
+            for node in root.iter("{http://www.w3.org/2000/svg}g")
+            if "data-system" in node.attrib
+        ]
+        self.assertEqual(
+            [node.attrib["data-system"] for node in modules],
+            ["dag", "aviation", "jarvis"],
+        )
+        widths = [int(node.attrib["data-module-width"]) for node in modules]
+        self.assertEqual(len(set(widths)), 3)
+        self.assertGreater(widths[-1], max(widths[:-1]))
+        for node in root.iter("{http://www.w3.org/2000/svg}text"):
+            self.assertLessEqual(float(node.attrib["y"]), 420)
+
     def test_renderer_escapes_dynamic_text(self) -> None:
         svg = render_profile(self.data, "dark", status_label="A&B <ready>")
         self.assertIn("A&amp;B &lt;ready&gt;", svg)
