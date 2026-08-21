@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install portrait test dependency
+        run: python -m pip install ".[portrait]"
+
       - name: Run tests
         env:
           PYTHONPATH: src
@@ -35,3 +38,5 @@ jobs:
           python scripts/generate.py --offline --output-dir "$RUNNER_TEMP/profile-second"
           cmp "$RUNNER_TEMP/profile-first/profile-dark.svg" "$RUNNER_TEMP/profile-second/profile-dark.svg"
           cmp "$RUNNER_TEMP/profile-first/profile-light.svg" "$RUNNER_TEMP/profile-second/profile-light.svg"
+          cmp "$RUNNER_TEMP/profile-first/systems-dark.svg" "$RUNNER_TEMP/profile-second/systems-dark.svg"
+          cmp "$RUNNER_TEMP/profile-first/systems-light.svg" "$RUNNER_TEMP/profile-second/systems-light.svg"

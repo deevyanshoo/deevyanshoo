@@ -1,89 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" data-theme="light">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" data-theme="light" data-build="9f4b214a944a">
 <title>Things I built because I could</title>
-<desc>JARVIS hybrid inference, a DAG ledger, and large-scale aviation forecasting.</desc>
-<defs>
-<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#edf1f5" stroke-width="1"/></pattern>
-<linearGradient id="pulse" x1="0" x2="1"><stop stop-color="#a66200"/><stop offset="1" stop-color="#087f78"/></linearGradient>
-</defs>
+<desc>A DAG ledger, aviation forecasting at scale, and Jarvis: distributed systems to large-scale ML to edge AI.</desc>
 <style>
-.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Arial,sans-serif}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace}
-.name{font-size:48px;font-weight:800;letter-spacing:-1.4px}
-.role{font-size:14px;font-weight:700;letter-spacing:1.6px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:1.8px}
-.tag{font-size:25px;font-weight:700;letter-spacing:-.4px}
-.body{font-size:15px}
-.small{font-size:12px}
-.micro{font-size:11px;letter-spacing:.7px}
-.portrait{font-size:13px;font-weight:700;white-space:pre}
-.mission{font-size:28px;font-weight:800}
-.card-title{font-size:22px;font-weight:800}
-.metric{font-size:24px;font-weight:800}
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 </style>
-<rect width="1200" height="380" rx="18" fill="#fbfcfe"/>
-<rect x="1" y="1" width="1198" height="378" rx="17" fill="#ffffff" stroke="#d8dee7"/>
-<rect x="1" y="1" width="1198" height="378" rx="17" fill="url(#grid)" opacity=".45"/>
-<text x="28" y="36" class="mono eyebrow" fill="#a66200">THINGS I BUILT BECAUSE I COULD // 02</text>
-<text x="1170" y="36" class="mono small" fill="#6b7280" text-anchor="end">distributed systems  &gt;  large-scale ML  &gt;  edge AI</text>
-<line x1="28" y1="54" x2="1172" y2="54" stroke="#d8dee7"/>
-<line x1="400" y1="78" x2="400" y2="336" stroke="#d8dee7"/>
-<line x1="800" y1="78" x2="800" y2="336" stroke="#d8dee7"/>
-<text x="28" y="88" class="mono eyebrow" fill="#087f78">01 // JARVIS</text>
-<text x="28" y="120" class="sans card-title" fill="#111827">HYBRID AI</text>
-<text x="28" y="146" class="sans body" fill="#374151">personal JARVIS on a phone</text>
-<rect x="44" y="178" width="74" height="102" rx="12" fill="none" stroke="#374151" stroke-width="2"/>
-<text x="81" y="236" class="sans metric" fill="#a66200" text-anchor="middle">J</text>
-<rect x="155" y="205" width="82" height="46" rx="8" fill="none" stroke="#a66200" stroke-width="1.5"/>
-<text x="196" y="232" class="mono small" fill="#a66200" text-anchor="middle">ROUTER</text>
-<line x1="118" y1="229" x2="155" y2="229" stroke="#6b7280"/>
-<line x1="237" y1="217" x2="290" y2="190" stroke="#a66200"/>
-<line x1="237" y1="239" x2="290" y2="265" stroke="#087f78"/>
-<rect x="290" y="168" width="82" height="45" rx="7" fill="none" stroke="#a66200"/>
-<text x="331" y="188" class="mono small" fill="#a66200" text-anchor="middle">LOCAL</text>
-<text x="331" y="204" class="mono small" fill="#374151" text-anchor="middle">SLM</text>
-<rect x="290" y="244" width="82" height="45" rx="7" fill="none" stroke="#087f78"/>
-<text x="331" y="264" class="mono small" fill="#087f78" text-anchor="middle">CLOUD</text>
-<text x="331" y="280" class="mono small" fill="#374151" text-anchor="middle">LLM</text>
-<text x="28" y="330" class="mono small" fill="#6b7280">privacy HIGH // latency LOW // cloud optional</text>
-<text x="428" y="88" class="mono eyebrow" fill="#087f78">02 // DAG LEDGER</text>
-<text x="428" y="120" class="sans card-title" fill="#111827">DISTRIBUTED SYSTEMS</text>
-<text x="428" y="146" class="sans body" fill="#374151">peer-approved blocks without a linear chain</text>
-<line x1="475" y1="205" x2="560" y2="176" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="475" y1="205" x2="535" y2="265" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="560" y1="176" x2="645" y2="210" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="560" y1="176" x2="535" y2="265" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="645" y1="210" x2="535" y2="265" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="645" y1="210" x2="745" y2="188" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="645" y1="210" x2="690" y2="270" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="535" y1="265" x2="690" y2="270" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<line x1="745" y1="188" x2="690" y2="270" stroke="#6b7280" stroke-width="1.5" opacity=".75"/>
-<circle cx="475" cy="205" r="8" fill="#ffffff" stroke="#a66200" stroke-width="2"/>
-<circle cx="475" cy="205" r="3" fill="#a66200"/>
-<circle cx="560" cy="176" r="8" fill="#ffffff" stroke="#a66200" stroke-width="2"/>
-<circle cx="560" cy="176" r="3" fill="#a66200"/>
-<circle cx="645" cy="210" r="8" fill="#ffffff" stroke="#087f78" stroke-width="2"/>
-<circle cx="645" cy="210" r="3" fill="#087f78"/>
-<circle cx="535" cy="265" r="8" fill="#ffffff" stroke="#a66200" stroke-width="2"/>
-<circle cx="535" cy="265" r="3" fill="#a66200"/>
-<circle cx="690" cy="270" r="8" fill="#ffffff" stroke="#087f78" stroke-width="2"/>
-<circle cx="690" cy="270" r="3" fill="#087f78"/>
-<circle cx="745" cy="188" r="8" fill="#ffffff" stroke="#087f78" stroke-width="2"/>
-<circle cx="745" cy="188" r="3" fill="#087f78"/>
-<text x="428" y="330" class="mono small" fill="#6b7280">DAG growth // P2P approvals // custom consensus</text>
-<text x="828" y="88" class="mono eyebrow" fill="#087f78">03 // AVIATION</text>
-<text x="828" y="120" class="sans card-title" fill="#111827">FORECASTING AT SCALE</text>
-<text x="828" y="146" class="sans body" fill="#374151">demand prediction 65 days ahead</text>
-<text x="828" y="194" class="sans metric" fill="#a66200">&gt;90%</text>
-<text x="828" y="215" class="mono small" fill="#6b7280">forecast accuracy</text>
-<text x="1000" y="194" class="sans metric" fill="#111827">~800 TB/day</text>
-<text x="1000" y="215" class="mono small" fill="#6b7280">data environment</text>
-<line x1="828" y1="292" x2="1150" y2="292" stroke="#d8dee7"/>
-<line x1="975" y1="258" x2="975" y2="326" stroke="#d8dee7" stroke-dasharray="4 4"/>
-<polyline points="828,294 860,278 892,284 924,257 956,267 988,250 1020,256 1052,236 1084,244 1116,226 1148,232" fill="none" stroke="#374151" stroke-width="2"/>
-<polyline points="975,267 1008,257 1041,248 1074,239 1107,230 1148,221" fill="none" stroke="#a66200" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="828" y="320" class="mono small" fill="#6b7280">D+00</text>
-<text x="975" y="320" class="mono small" fill="#a66200" text-anchor="middle">FORECAST</text>
-<text x="1150" y="320" class="mono small" fill="#6b7280" text-anchor="end">D+65</text>
-<text x="1170" y="364" class="mono small" fill="#6b7280" text-anchor="end">not demos // systems that had to work</text>
+<style>
+.section-title{font-size:13px;font-weight:760;letter-spacing:1.4px}
+.progression{font-size:10px;letter-spacing:.65px}
+.system-title{font-size:22px;font-weight:790;letter-spacing:-.35px}
+.jarvis-title{font-size:27px}
+.system-subtitle{font-size:14px;font-weight:560}
+.evidence{font-size:24px;font-weight:780;letter-spacing:-.5px}
+.fact{font-size:10px;letter-spacing:.55px}
+.note{font-size:12px}
+.jarvis-principles{font-size:11px;font-weight:700;letter-spacing:.8px}
+</style>
+<defs>
+<marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#727b7e"/></marker>
+</defs>
+<rect width="1200" height="420" rx="18" fill="#f4f0e7"/>
+<rect x="1" y="1" width="1198" height="418" rx="17" fill="none" stroke="#d4cec2"/>
+<text x="24" y="30" class="sans section-title" fill="#a45d18">THINGS I BUILT BECAUSE I COULD</text>
+<text x="1176" y="30" class="mono progression" fill="#727b7e" text-anchor="end">DISTRIBUTED SYSTEMS  →  LARGE-SCALE ML  →  EDGE AI</text>
+<path d="M24 48H1176" stroke="#d4cec2"/>
+<path d="M306 64V372" stroke="#d4cec2"/>
+<path d="M670 64V372" stroke="#d4cec2"/>
+<g data-system="dag" data-module-width="280">
+<text x="24" y="84" class="sans system-title" fill="#191d20">DAG LEDGER</text>
+<text x="24" y="108" class="sans system-subtitle" fill="#3f474c">experimental distributed ledger</text>
+<text x="24" y="139" class="mono fact" fill="#2f7773">crawler / network logic</text>
+<text x="24" y="157" class="mono fact" fill="#727b7e">peer approvals + validation incentives</text>
+<path d="M55 218L116 178" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M55 218L118 272" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M116 178L188 214" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M118 272L188 214" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M116 178L252 166" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M188 214L252 166" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M188 214L258 270" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M252 166L258 270" stroke="#d4cec2" stroke-width="1.5" marker-end="url(#arrow)"/>
+<circle cx="55" cy="218" r="10" fill="#f4f0e7" stroke="#a45d18" stroke-width="1.5"/>
+<circle cx="55" cy="218" r="3" fill="#a45d18"/>
+<circle cx="116" cy="178" r="10" fill="#f4f0e7" stroke="#a45d18" stroke-width="1.5"/>
+<circle cx="116" cy="178" r="3" fill="#a45d18"/>
+<circle cx="118" cy="272" r="10" fill="#f4f0e7" stroke="#a45d18" stroke-width="1.5"/>
+<circle cx="118" cy="272" r="3" fill="#a45d18"/>
+<circle cx="188" cy="214" r="10" fill="#f4f0e7" stroke="#2f7773" stroke-width="1.5"/>
+<circle cx="188" cy="214" r="3" fill="#2f7773"/>
+<circle cx="252" cy="166" r="10" fill="#f4f0e7" stroke="#2f7773" stroke-width="1.5"/>
+<circle cx="252" cy="166" r="3" fill="#2f7773"/>
+<circle cx="258" cy="270" r="10" fill="#f4f0e7" stroke="#2f7773" stroke-width="1.5"/>
+<circle cx="258" cy="270" r="3" fill="#2f7773"/>
+<text x="24" y="326" class="sans note" fill="#3f474c">DAG, not a linear chain.</text>
+<text x="24" y="346" class="sans note" fill="#727b7e">Testing another storage shape.</text>
+</g>
+<g data-system="aviation" data-module-width="334">
+<text x="330" y="84" class="sans system-title" fill="#191d20">AVIATION FORECASTING</text>
+<text x="330" y="108" class="sans system-subtitle" fill="#3f474c">demand forecasting 65 days ahead</text>
+<text x="330" y="151" class="sans evidence" fill="#a45d18">&gt;90% accuracy</text>
+<text x="502" y="151" class="sans evidence" fill="#191d20">~800 TB/day</text>
+<text x="330" y="170" class="mono fact" fill="#727b7e">forecast</text>
+<text x="502" y="170" class="mono fact" fill="#727b7e">data environment</text>
+<path d="M330 290H650" stroke="#d4cec2"/>
+<path d="M550 190V306" stroke="#d4cec2" stroke-dasharray="4 5"/>
+<polyline points="340,279 370,266 400,270 430,245 460,253 490,232 520,242 550,218" fill="none" stroke="#3f474c" stroke-width="2"/>
+<polyline points="550,218 580,205 610,194 646,177" fill="none" stroke="#a45d18" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="330" y="311" class="mono fact" fill="#727b7e">HISTORY</text>
+<text x="550" y="311" class="mono fact" fill="#a45d18" text-anchor="middle">NOW</text>
+<text x="650" y="311" class="mono fact" fill="#727b7e" text-anchor="end">D+65</text>
+<text x="330" y="346" class="sans note" fill="#3f474c">Large-scale ML systems that had to work.</text>
+</g>
+<g data-system="jarvis" data-module-width="486">
+<text x="690" y="84" class="sans system-title jarvis-title" fill="#191d20">JARVIS</text>
+<text x="690" y="110" class="sans system-subtitle" fill="#3f474c">mobile-first personal AI</text>
+<text x="690" y="139" class="sans note" fill="#727b7e">A real assistant living on my phone.</text>
+<rect x="704" y="183" width="66" height="118" rx="13" fill="#faf7f0" stroke="#3f474c" stroke-width="1.5"/>
+<path d="M725 194H749" stroke="#d4cec2" stroke-width="2"/>
+<circle cx="737" cy="282" r="4" fill="#a45d18"/>
+<text x="737" y="246" class="sans evidence" fill="#191d20" text-anchor="middle">J</text>
+<path d="M770 241H821" stroke="#d4cec2" marker-end="url(#arrow)"/>
+<rect x="827" y="211" width="112" height="60" rx="7" fill="#f4f0e7" stroke="#a45d18" stroke-width="1.5"/>
+<text x="883" y="237" class="mono fact" fill="#a45d18" text-anchor="middle">INFERENCE</text>
+<text x="883" y="255" class="mono fact" fill="#3f474c" text-anchor="middle">ROUTER</text>
+<path d="M939 230L989 194" stroke="#d4cec2" marker-end="url(#arrow)"/>
+<path d="M939 252L989 288" stroke="#d4cec2" marker-end="url(#arrow)"/>
+<rect x="996" y="164" width="170" height="62" rx="7" fill="#faf7f0" stroke="#2f7773" stroke-width="1.5"/>
+<text x="1012" y="190" class="mono fact" fill="#2f7773">ON DEVICE</text>
+<text x="1012" y="211" class="sans note" fill="#3f474c">quantized local SLM</text>
+<rect x="996" y="258" width="170" height="62" rx="7" fill="#faf7f0" stroke="#727b7e" stroke-width="1.5"/>
+<text x="1012" y="284" class="mono fact" fill="#727b7e">WHEN NEEDED</text>
+<text x="1012" y="305" class="sans note" fill="#3f474c">cloud LLM</text>
+<text x="690" y="346" class="mono jarvis-principles" fill="#2f7773">privacy · latency · capability</text>
+</g>
+<path d="M24 372H1176" stroke="#d4cec2"/>
+<text x="24" y="398" class="mono progression" fill="#727b7e">BUILT TO LEARN. KEPT BECAUSE THEY TAUGHT ME SOMETHING.</text>
 </svg>

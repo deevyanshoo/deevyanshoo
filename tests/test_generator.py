@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from operator_profile.fingerprint import source_fingerprint
+from operator_profile.fingerprint import SOURCE_INPUTS, source_fingerprint
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,18 +40,32 @@ class GeneratorContractTests(unittest.TestCase):
             environment["PYTHONPATH"] = str(ROOT / "src")
 
             subprocess.run(command, cwd=ROOT, env=environment, check=True)
-            first = {
-                theme: (output / f"profile-{theme}.svg").read_bytes()
-                for theme in ("light", "dark")
-            }
+            names = (
+                "profile-light.svg",
+                "profile-dark.svg",
+                "systems-light.svg",
+                "systems-dark.svg",
+            )
+            first = {name: (output / name).read_bytes() for name in names}
             subprocess.run(command, cwd=ROOT, env=environment, check=True)
-            second = {
-                theme: (output / f"profile-{theme}.svg").read_bytes()
-                for theme in ("light", "dark")
-            }
+            second = {name: (output / name).read_bytes() for name in names}
 
             self.assertEqual(first, second)
             self.assertTrue(all(value.startswith(b"<?xml") for value in first.values()))
+            build = source_fingerprint(ROOT).encode()
+            self.assertTrue(all(b'data-build="' + build + b'"' in value for value in first.values()))
+
+    def test_committed_assets_match_current_source_fingerprint(self) -> None:
+        expected = source_fingerprint(ROOT)
+        self.assertEqual(len(SOURCE_INPUTS), len(set(SOURCE_INPUTS)))
+        for name in (
+            "profile-light.svg",
+            "profile-dark.svg",
+            "systems-light.svg",
+            "systems-dark.svg",
+        ):
+            content = (ROOT / "assets" / name).read_text(encoding="utf-8")
+            self.assertIn(f'data-build="{expected}"', content, name)
 
 
 if __name__ == "__main__":

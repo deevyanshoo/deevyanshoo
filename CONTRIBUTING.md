@@ -1,6 +1,11 @@
 # Maintaining the profile
 
-The profile is intentionally dependency-free. Python 3.13 is the only runtime requirement.
+The committed renderer uses only Python 3.13. Portrait regeneration and its tests use
+the pinned optional Pillow dependency:
+
+```bash
+python -m pip install ".[portrait]"
+```
 
 ## Local verification
 
@@ -20,4 +25,17 @@ The telemetry query requests counts only. Do not add repository identity fieldsâ
 
 ## Design edits
 
-Public copy lives in `src/operator_profile/content.py`, portrait rows in `portrait.py`, themes/layout in `render.py`, and GitHub API handling in `telemetry.py`. Keep those boundaries intact so content changes cannot weaken the privacy boundary.
+Public copy lives in `src/operator_profile/content.py`; hero and systems geometry live
+in `hero.py` and `systems.py`; themes and escaping live in `svg.py`; GitHub API
+handling lives in `telemetry.py`. The four committed SVGs include a fingerprint of
+every renderer input, and tests fail when those assets are stale.
+
+The portrait source photo is deliberately not part of the repository. To rebuild the
+four-tone vector data, pass a local source explicitly:
+
+```bash
+python scripts/build_portrait.py --source /path/to/photo.jpg --output src/operator_profile/portrait_data.py
+```
+
+Never add the source photograph to Git. Keep the content and telemetry boundaries
+separate so a design edit cannot weaken the aggregate-only data contract.

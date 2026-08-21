@@ -3,6 +3,8 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
+from operator_profile.fingerprint import SOURCE_INPUTS
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -86,9 +88,18 @@ class ReadmeContractTests(unittest.TestCase):
         self.assertIn("contents: write", profile)
         self.assertIn("push:", profile)
         self.assertIn('"src/operator_profile/**"', profile)
+        self.assertIn('"scripts/generate.py"', profile)
         self.assertIn("schedule:", profile)
         self.assertIn("workflow_dispatch:", profile)
         self.assertIn("secrets.PROFILE_TOKEN", profile)
+        self.assertIn('python -m pip install ".[portrait]"', ci)
+        self.assertIn('python -m pip install ".[portrait]"', profile)
+        self.assertNotIn('"assets/**"', profile)
+        for relative in SOURCE_INPUTS:
+            if relative.startswith("src/operator_profile/"):
+                self.assertIn('"src/operator_profile/**"', profile)
+            elif relative == "scripts/generate.py":
+                self.assertIn('"scripts/generate.py"', profile)
         for asset in (
             "assets/profile-dark.svg",
             "assets/profile-light.svg",
@@ -96,6 +107,7 @@ class ReadmeContractTests(unittest.TestCase):
             "assets/systems-light.svg",
         ):
             self.assertIn(asset, profile)
+            self.assertIn(f'cmp "$RUNNER_TEMP/profile-first/{Path(asset).name}"', ci)
 
     def test_token_documentation_requires_only_read_user_scope(self) -> None:
         contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")

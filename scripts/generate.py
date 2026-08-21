@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from operator_profile.model import ProfileData  # noqa: E402
+from operator_profile.fingerprint import source_fingerprint  # noqa: E402
 from operator_profile.render import render_profile, render_systems  # noqa: E402
 from operator_profile.telemetry import fetch_stats, parse_stats  # noqa: E402
 
@@ -67,14 +68,21 @@ def main() -> int:
         stats = fetch_stats(token=token, login=arguments.login)
 
     data = ProfileData(stats=stats)
+    build_id = source_fingerprint(ROOT)
     changed: list[str] = []
     for theme in ("light", "dark"):
         profile_destination = arguments.output_dir / f"profile-{theme}.svg"
-        if _write_if_changed(profile_destination, render_profile(data, theme)):
+        if _write_if_changed(
+            profile_destination,
+            render_profile(data, theme, build_id=build_id),
+        ):
             changed.append(profile_destination.name)
 
         systems_destination = arguments.output_dir / f"systems-{theme}.svg"
-        if _write_if_changed(systems_destination, render_systems(theme)):
+        if _write_if_changed(
+            systems_destination,
+            render_systems(theme, build_id=build_id),
+        ):
             changed.append(systems_destination.name)
 
     print("updated: " + ", ".join(changed) if changed else "profile assets unchanged")
