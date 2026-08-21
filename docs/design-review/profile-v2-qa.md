@@ -131,3 +131,32 @@ the final supervisor review.
   claim.
 
 All BLOCKER and MAJOR findings are resolved.
+
+## 2026-08-22 copy and motto refinement
+
+The outside-the-terminal copy now reads as one personal observation rather than a
+car-brand shortlist. The 911 remains a quiet hero easter egg. The philosophical
+line moved directly below the systems visual and now renders as a centered,
+GitHub-native sans statement rather than an indented blockquote.
+
+Visual review repeated the complete matrix:
+
+| Surface | Theme | Native | GitHub width |
+| --- | --- | ---: | ---: |
+| Hero | dark | 1200 x 560 | 880 x 411 |
+| Hero | light | 1200 x 560 | 880 x 411 |
+| Systems | dark | 1200 x 420 | 880 x 308 |
+| Systems | light | 1200 x 420 | 880 x 308 |
+
+The 880 px assets were rendered through temporary single-root SVG scalers so the
+inspection matched GitHub's width-100% embedding. All eight images were inspected
+after Chrome process isolation removed a screenshot-harness race. No clipping,
+overlap, contrast, portrait, Nnomi hierarchy, or systems-alignment regression
+remains.
+
+GitHub's Markdown API confirmed that the motto renders as a centered strong
+paragraph before `Current obsessions`, the German-cars sentence renders as one
+clean paragraph, and no public em dash survives. The copy-edit pass found no
+clarity, voice, specificity, or human-tone defect.
+
+Verdict: PASS.

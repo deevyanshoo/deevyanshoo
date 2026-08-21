@@ -29,6 +29,8 @@ class ReadmeContractTests(unittest.TestCase):
         combined = "\n".join(public).lower()
         for phrase in forbidden:
             self.assertNotIn(phrase, combined)
+        for content in public:
+            self.assertNotIn("\u2014", content)
 
     def test_readme_has_theme_art_and_native_accessible_story(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -52,7 +54,7 @@ class ReadmeContractTests(unittest.TestCase):
             "Outside the terminal",
             "F1",
             "watches",
-            "garage target",
+            "German cars remain a recurring threat",
             "build weird things. make them useful. ship them.",
         ):
             self.assertIn(phrase, readme)
@@ -75,6 +77,25 @@ class ReadmeContractTests(unittest.TestCase):
             "### `01 /",
         ):
             self.assertNotIn(forbidden, lower)
+
+    def test_personality_copy_and_motto_placement_are_authored(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        motto = "build weird things. make them useful. ship them."
+        motto_markup = f'<p align="center"><strong>{motto}</strong></p>'
+        personal = (
+            "F1, football, watches, music, coffee, and taking hardware apart "
+            "with unjustified confidence. German cars remain a recurring threat "
+            "to the investment plan."
+        )
+        self.assertIn(motto_markup, readme)
+        self.assertIn(personal, readme)
+        self.assertNotIn("> **build weird things", readme)
+        self.assertNotIn("Porsche has the garage target", readme)
+        self.assertLess(
+            readme.index("assets/systems-light.svg"),
+            readme.index(motto),
+        )
+        self.assertLess(readme.index(motto), readme.index("## Current obsessions"))
 
     def test_ci_and_profile_workflows_separate_permissions_and_secrets(self) -> None:
         ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")

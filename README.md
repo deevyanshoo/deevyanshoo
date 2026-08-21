@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/profile-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/profile-light.svg">
-  <img alt="Divyanshu Goyal — AI Architect, founder, and builder; University of Pennsylvania; Gurugram ↔ wherever" src="assets/profile-light.svg" width="100%">
+  <img alt="Divyanshu Goyal, AI Architect, founder, and builder; University of Pennsylvania; Gurugram ↔ wherever" src="assets/profile-light.svg" width="100%">
 </picture>
 
 ## Building
@@ -30,6 +30,8 @@ A serious attempt at making it easier to get home safely when you need a driver,
   <img alt="JARVIS mobile AI architecture, an experimental DAG ledger, and large-scale aviation forecasting" src="assets/systems-light.svg" width="100%">
 </picture>
 
+<p align="center"><strong>build weird things. make them useful. ship them.</strong></p>
+
 ## Current obsessions
 
 Smaller models, better routers, agents with fewer excuses, and AI that knows when not to call the cloud.
@@ -38,11 +40,7 @@ Working set: Python, TypeScript, C++, FastAPI, Next.js, PostgreSQL, Docker, Kube
 
 ## Outside the terminal
 
-F1, football, watches, cars, music, coffee, and taking hardware apart with unjustified confidence.
-
-Porsche has the garage target. BMW keeps making the shortlist.
-
-> **build weird things. make them useful. ship them.**
+F1, football, watches, music, coffee, and taking hardware apart with unjustified confidence. German cars remain a recurring threat to the investment plan.
 
 ## Find me
 

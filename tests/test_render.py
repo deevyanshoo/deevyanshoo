@@ -78,6 +78,7 @@ class DeterministicRenderTests(unittest.TestCase):
         )
         for phrase in forbidden:
             self.assertNotIn(phrase, svg)
+        self.assertNotIn("\u2014", svg)
         self.assertRegex(svg, r'class="sans mission-name"[^>]*>NNOMI</text>')
 
     def test_systems_panel_tells_engineering_story(self) -> None:
