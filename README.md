@@ -24,6 +24,14 @@ A serious attempt at making it easier to get home safely when you need a driver,
 
 ## Things I built because I could
 
+### [CoderPolice 🚨](https://github.com/deevyanshoo/agentic-engineering-conformance)
+
+**Okay, but prove it.**
+
+Open-source conformance tests for the engineering around coding agents — evidence, review, authority, stale state, and all the stuff agents confidently claim they handled.
+
+[Break it →](https://github.com/deevyanshoo/agentic-engineering-conformance/issues/11)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/systems-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/systems-light.svg">
